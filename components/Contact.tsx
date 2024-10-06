@@ -49,16 +49,35 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log(formData);
-    // Simulating an API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    toast({
-      title: 'Message Sent!',
-      description: 'Thank you for your message. Our Ottawa web development and SEO team will get back to you soon.',
-    });
-    setFormData({ name: '', email: '', message: '' });
-    setShowConfetti(true);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast({
+          title: 'Message Sent!',
+          description: 'Thank you for your message. Our Ottawa web development and SEO team will get back to you soon.',
+        });
+        setFormData({ name: '', email: '', message: '' });
+        setShowConfetti(true);
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: 'Error',
+        description: error instanceof Error ? error.message : 'Failed to send message. Please try again later.',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (

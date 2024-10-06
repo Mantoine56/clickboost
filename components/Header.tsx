@@ -24,10 +24,14 @@ export default function Header() {
     { href: "#contact", label: "Contact" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-background/80 backdrop-blur-sm z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
           <Image src="/logo.png" alt="ClickBoost Logo" width={40} height={40} className="mr-2" />
           <h1 className="text-2xl font-bold text-primary">ClickBoost</h1>
         </div>

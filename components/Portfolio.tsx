@@ -4,22 +4,26 @@ import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const projects = [
   {
     title: 'Mariouomo.com - Ottawa Web Design',
     description: "Elegant men's clothing store with a sophisticated online shopping experience. Custom web development and local SEO for Ottawa retail.",
-    image: 'https://mariouomo.com/cdn/shop/files/MARIO-UOMO-LOGO-BLACK_410x.png?v=1614092314',
+    image: '/uomo.jpg',
+    link: 'https://mariouomo.com',
   },
   {
     title: 'Highties.ca - Ottawa E-commerce Development',
     description: 'Modern cannabis dispensary platform offering a wide range of products and educational resources. Full-service web development and SEO for Ottawa-based e-commerce.',
-    image: 'https://highties.ca/cdn/shop/files/highties-logo_200x.png?v=1673987609',
+    image: '/HT.webp',
+    link: 'https://highties.ca',
   },
   {
     title: 'Elysian Wellness - Ottawa Healthcare Web Design',
     description: 'Comprehensive physiotherapy and wellness clinic website showcasing various health services. Custom web application development for Ottawa healthcare providers.',
-    image: 'https://static.wixstatic.com/media/72c0b2_bff2605f6788440786dd8d93e0cd9d5e~mv2.png/v1/fill/w_280,h_280,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Elysian%20Wellness%20Logo.png',
+    image: '/elysian.png',
+    link: 'https://www.elysianwellnesscentre.com/'
   },
 ];
 
@@ -38,18 +42,20 @@ export default function Portfolio() {
               viewport={{ once: true }}
             >
               <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
-                <AspectRatio ratio={16 / 9}>
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-contain p-4"
-                  />
-                </AspectRatio>
-                <CardHeader>
-                  <CardTitle className="text-accent">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
+                <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-contain p-4"
+                    />
+                  </AspectRatio>
+                  <CardHeader>
+                    <CardTitle className="text-accent">{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                </Link>
               </Card>
             </motion.div>
           ))}
