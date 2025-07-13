@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// Import 21st.dev Toolbar components for AI-powered editing capabilities
+import { TwentyFirstToolbar } from "@21st-extension/toolbar-next";
+import { ReactPlugin } from "@21st-extension/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +31,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* 21st.dev Toolbar for AI-powered editing - only renders in development mode */}
+        <TwentyFirstToolbar
+          config={{
+            plugins: [ReactPlugin],
+          }}
+        />
       </body>
     </html>
   );
