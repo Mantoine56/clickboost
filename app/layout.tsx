@@ -5,6 +5,8 @@ import "./globals.css";
 import { TwentyFirstToolbar } from "@21st-extension/toolbar-next";
 import { ReactPlugin } from "@21st-extension/react";
 import { ThemeProvider } from "next-themes";
+// Global navigation bar
+import { MainNavigation } from "@/components/navigation/main-nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,6 +88,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Site-wide navigation: fixed so it appears on every page */}
+          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+            <MainNavigation />
+          </div>
+
           {children}
         </ThemeProvider>
         {/* 21st.dev Toolbar for AI-powered editing - only renders in development mode */}
