@@ -1,0 +1,31 @@
+{
+  "id": "mobile-development",
+  "title": "Mobile App Development",
+  "shortDescription": "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+  "fullDescription": "From iOS and Android native apps to cross-platform solutions using React Native and Flutter, we build mobile applications that engage users and drive business results. Our apps are optimized for performance, security, and scalability.",
+  "icon": "Smartphone",
+  "features": [
+    "iOS & Android Native Apps",
+    "Cross-Platform Development",
+    "App Store Optimization",
+    "Push Notifications",
+    "Offline Functionality",
+    "Real-time Features",
+    "Payment Integration",
+    "Analytics & Monitoring"
+  ],
+  "technologies": [
+    "React Native",
+    "Flutter",
+    "Swift",
+    "Kotlin",
+    "Firebase",
+    "Expo",
+    "App Store Connect",
+    "Google Play Console"
+  ],
+  "startingPrice": "$8,000",
+  "deliveryTime": "6-12 weeks",
+  "gradient": "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+  "iconColor": "text-purple-500"
+}

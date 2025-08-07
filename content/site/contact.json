@@ -1,0 +1,37 @@
+{
+  "email": "hello@clickboost.ca",
+  "phone": "+1 (555) 123-4567",
+  "address": {
+    "street": "123 Innovation Drive",
+    "city": "Toronto",
+    "province": "Ontario",
+    "postalCode": "M5V 3A8",
+    "country": "Canada"
+  },
+  "socialMedia": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/company/clickboost-dev",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/clickboost_dev",
+      "icon": "twitter"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/clickboost-dev",
+      "icon": "github"
+    },
+    {
+      "platform": "Dribbble",
+      "url": "https://dribbble.com/clickboost",
+      "icon": "dribbble"
+    }
+  ],
+  "businessHours": {
+    "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM EST",
+    "weekends": "Weekend consultations available by appointment"
+  }
+}

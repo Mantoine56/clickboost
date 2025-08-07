@@ -1,0 +1,46 @@
+{
+  "id": "ecommerce-platform",
+  "title": "Modern E-commerce Platform",
+  "client": "RetailTech Solutions",
+  "description": "A comprehensive e-commerce platform with advanced inventory management, real-time analytics, and seamless payment processing.",
+  "fullDescription": "We developed a full-stack e-commerce solution that handles high-volume transactions with real-time inventory tracking, advanced search capabilities, and integrated payment processing. The platform features a modern React frontend with a robust Node.js backend, delivering exceptional performance and user experience.",
+  "category": "web",
+  "technologies": ["React", "Next.js", "Node.js", "PostgreSQL", "Stripe", "AWS", "Redis"],
+  "images": [
+    {
+      "url": "/portfolio/ecommerce-hero.jpg",
+      "alt": "E-commerce platform homepage",
+      "type": "hero"
+    },
+    {
+      "url": "/portfolio/ecommerce-dashboard.jpg",
+      "alt": "Admin dashboard interface",
+      "type": "screenshot"
+    },
+    {
+      "url": "/portfolio/ecommerce-mobile.jpg",
+      "alt": "Mobile responsive design",
+      "type": "mockup"
+    }
+  ],
+  "liveUrl": "https://demo-ecommerce.clickboost.ca",
+  "featured": true,
+  "completedDate": "2024-03-15",
+  "results": [
+    {
+      "metric": "Conversion Rate",
+      "value": "+45%",
+      "description": "Increase in sales conversion rate"
+    },
+    {
+      "metric": "Page Load Speed",
+      "value": "1.2s",
+      "description": "Average page load time"
+    },
+    {
+      "metric": "User Satisfaction",
+      "value": "4.8/5",
+      "description": "Average user rating"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "ui-ux-design",
+  "title": "UI/UX Design",
+  "shortDescription": "User-centered design solutions that create intuitive, engaging, and conversion-focused digital experiences.",
+  "fullDescription": "Our design team creates beautiful, functional interfaces that prioritize user experience and business goals. From wireframes to high-fidelity prototypes, we ensure every interaction is purposeful and delightful.",
+  "icon": "Palette",
+  "features": [
+    "User Research & Analysis",
+    "Wireframing & Prototyping",
+    "Visual Design Systems",
+    "Interaction Design",
+    "Usability Testing",
+    "Brand Identity Design",
+    "Responsive Design",
+    "Accessibility Compliance"
+  ],
+  "technologies": [
+    "Figma",
+    "Adobe Creative Suite",
+    "Sketch",
+    "InVision",
+    "Principle",
+    "Framer",
+    "Miro",
+    "Hotjar"
+  ],
+  "startingPrice": "$3,000",
+  "deliveryTime": "2-6 weeks",
+  "gradient": "radial-gradient(circle, rgba(6,214,160,0.15) 0%, rgba(5,150,105,0.06) 50%, rgba(4,120,87,0) 100%)",
+  "iconColor": "text-emerald-500"
+}

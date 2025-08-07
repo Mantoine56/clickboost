@@ -1,0 +1,31 @@
+{
+  "id": "web-development",
+  "title": "Web Development",
+  "shortDescription": "Custom web applications built with modern technologies for optimal performance and user experience.",
+  "fullDescription": "We create powerful, scalable web applications using cutting-edge technologies like React, Next.js, and Node.js. Our development process focuses on performance, security, and user experience to deliver solutions that drive business growth.",
+  "icon": "Code",
+  "features": [
+    "Custom Web Applications",
+    "E-commerce Solutions",
+    "Progressive Web Apps (PWA)",
+    "API Development & Integration",
+    "Database Design & Optimization",
+    "Performance Optimization",
+    "SEO Implementation",
+    "Responsive Design"
+  ],
+  "technologies": [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS",
+    "Vercel"
+  ],
+  "startingPrice": "$5,000",
+  "deliveryTime": "4-8 weeks",
+  "gradient": "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
+  "iconColor": "text-blue-500"
+}

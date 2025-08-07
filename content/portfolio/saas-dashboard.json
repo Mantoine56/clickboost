@@ -1,0 +1,46 @@
+{
+  "id": "saas-dashboard",
+  "title": "Analytics SaaS Dashboard",
+  "client": "DataInsights Pro",
+  "description": "A powerful analytics dashboard with real-time data visualization, custom reporting, and team collaboration features.",
+  "fullDescription": "We created a comprehensive SaaS analytics platform that processes millions of data points in real-time. The dashboard features interactive charts, customizable reports, team management, and API integrations. Built with modern technologies for scalability and performance.",
+  "category": "web",
+  "technologies": ["React", "TypeScript", "D3.js", "Node.js", "MongoDB", "WebSocket", "Docker"],
+  "images": [
+    {
+      "url": "/portfolio/saas-hero.jpg",
+      "alt": "SaaS dashboard overview",
+      "type": "hero"
+    },
+    {
+      "url": "/portfolio/saas-analytics.jpg",
+      "alt": "Analytics visualization",
+      "type": "screenshot"
+    },
+    {
+      "url": "/portfolio/saas-reports.jpg",
+      "alt": "Custom reports interface",
+      "type": "screenshot"
+    }
+  ],
+  "liveUrl": "https://demo-analytics.clickboost.ca",
+  "featured": false,
+  "completedDate": "2023-11-10",
+  "results": [
+    {
+      "metric": "Data Processing",
+      "value": "1M+",
+      "description": "Data points processed per minute"
+    },
+    {
+      "metric": "Response Time",
+      "value": "<200ms",
+      "description": "Average API response time"
+    },
+    {
+      "metric": "Customer Satisfaction",
+      "value": "96%",
+      "description": "Client satisfaction score"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ClickBoost - Web & App Development Agency",
+  "short_name": "ClickBoost",
+  "description": "Professional web and mobile app development services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

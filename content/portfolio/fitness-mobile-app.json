@@ -1,0 +1,46 @@
+{
+  "id": "fitness-mobile-app",
+  "title": "FitTrack - Fitness Mobile App",
+  "client": "HealthTech Innovations",
+  "description": "A comprehensive fitness tracking app with workout planning, progress monitoring, and social features for iOS and Android.",
+  "fullDescription": "FitTrack is a cross-platform mobile application built with React Native that helps users track their fitness journey. Features include personalized workout plans, progress tracking, social challenges, and integration with popular fitness devices. The app uses Firebase for real-time data synchronization and includes advanced analytics for user insights.",
+  "category": "mobile",
+  "technologies": ["React Native", "Firebase", "Redux", "Expo", "Stripe", "HealthKit", "Google Fit"],
+  "images": [
+    {
+      "url": "/portfolio/fittrack-hero.jpg",
+      "alt": "FitTrack app main interface",
+      "type": "hero"
+    },
+    {
+      "url": "/portfolio/fittrack-workout.jpg",
+      "alt": "Workout tracking screen",
+      "type": "screenshot"
+    },
+    {
+      "url": "/portfolio/fittrack-social.jpg",
+      "alt": "Social features interface",
+      "type": "screenshot"
+    }
+  ],
+  "liveUrl": "https://apps.apple.com/app/fittrack-demo",
+  "featured": true,
+  "completedDate": "2024-01-20",
+  "results": [
+    {
+      "metric": "App Store Rating",
+      "value": "4.9/5",
+      "description": "Average user rating across platforms"
+    },
+    {
+      "metric": "Daily Active Users",
+      "value": "25,000+",
+      "description": "Active users per day"
+    },
+    {
+      "metric": "User Retention",
+      "value": "78%",
+      "description": "30-day user retention rate"
+    }
+  ]
+}

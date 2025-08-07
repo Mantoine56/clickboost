@@ -1,0 +1,13 @@
+{
+  "title": "Transform Your Ideas Into",
+  "subtitle": "Powerful Digital Solutions",
+  "description": "We're ClickBoost, a team of passionate developers and designers who specialize in creating custom web applications, mobile apps, and stunning user experiences that drive business growth.",
+  "primaryCta": {
+    "text": "Start Your Project",
+    "href": "/contact"
+  },
+  "secondaryCta": {
+    "text": "View Our Work",
+    "href": "/portfolio"
+  }
+}

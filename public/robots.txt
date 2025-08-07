@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://clickboost.ca
+
+# Sitemaps
+Sitemap: https://clickboost.ca/sitemap.xml

@@ -1,7 +1,17 @@
 {
-  "name": "clickboost",
-  "version": "0.1.0",
+  "name": "clickboost-website",
+  "version": "1.0.0",
   "private": true,
+  "description": "ClickBoost - Professional Web & App Development Agency",
+  "keywords": [
+    "web development",
+    "app development",
+    "ui/ux design",
+    "clickboost",
+    "agency"
+  ],
+  "author": "ClickBoost Development Team",
+  "homepage": "https://clickboost.ca",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

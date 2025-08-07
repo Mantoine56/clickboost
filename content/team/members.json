@@ -1,0 +1,64 @@
+{
+  "members": [
+    {
+      "id": "alex-chen",
+      "name": "Alex Chen",
+      "role": "Lead Full-Stack Developer",
+      "bio": "Alex is a passionate full-stack developer with 8+ years of experience building scalable web applications. Specializes in React, Node.js, and cloud architecture.",
+      "image": "/team/alex-chen.jpg",
+      "skills": ["React", "Node.js", "TypeScript", "AWS", "PostgreSQL", "Docker"],
+      "socialLinks": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/in/alexchen-dev",
+          "icon": "linkedin"
+        },
+        {
+          "platform": "GitHub",
+          "url": "https://github.com/alexchen-dev",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "sarah-martinez",
+      "name": "Sarah Martinez",
+      "role": "Senior UI/UX Designer",
+      "bio": "Sarah brings 6+ years of design expertise, creating user-centered experiences that drive engagement and conversion. Expert in design systems and accessibility.",
+      "image": "/team/sarah-martinez.jpg",
+      "skills": ["Figma", "Adobe Creative Suite", "User Research", "Prototyping", "Design Systems", "Accessibility"],
+      "socialLinks": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/in/sarahmartinez-design",
+          "icon": "linkedin"
+        },
+        {
+          "platform": "Dribbble",
+          "url": "https://dribbble.com/sarahmartinez",
+          "icon": "dribbble"
+        }
+      ]
+    },
+    {
+      "id": "mike-johnson",
+      "name": "Mike Johnson",
+      "role": "Mobile App Developer",
+      "bio": "Mike specializes in cross-platform mobile development with 5+ years of experience. Expert in React Native and Flutter, delivering high-performance mobile apps.",
+      "image": "/team/mike-johnson.jpg",
+      "skills": ["React Native", "Flutter", "iOS", "Android", "Firebase", "App Store Optimization"],
+      "socialLinks": [
+        {
+          "platform": "LinkedIn",
+          "url": "https://linkedin.com/in/mikejohnson-mobile",
+          "icon": "linkedin"
+        },
+        {
+          "platform": "GitHub",
+          "url": "https://github.com/mikejohnson-mobile",
+          "icon": "github"
+        }
+      ]
+    }
+  ]
+}
