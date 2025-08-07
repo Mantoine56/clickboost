@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Home, Code, Briefcase, Users, Mail, Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { EnhancedMenuBar } from "@/components/ui/enhanced-menu"
 import { NavigationItem } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -71,6 +71,7 @@ interface MainNavigationProps {
 export function MainNavigation({ className }: MainNavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const prefersReducedMotion = useReducedMotion()
 
   const handleItemClick = (label: string) => {
     // Close mobile menu when item is clicked
@@ -117,8 +118,8 @@ export function MainNavigation({ className }: MainNavigationProps) {
         <motion.button
           onClick={toggleMobileMenu}
           className="p-3 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
+          whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
         >
           <motion.div
             className="absolute -inset-2 bg-gradient-radial from-transparent via-blue-400/20 via-30% via-purple-400/20 via-60% via-pink-400/20 via-90% to-transparent rounded-3xl z-0 pointer-events-none opacity-0"
@@ -130,9 +131,9 @@ export function MainNavigation({ className }: MainNavigationProps) {
               {isMobileMenuOpen ? (
                 <motion.div
                   key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
+                  initial={prefersReducedMotion ? undefined : { rotate: -90, opacity: 0 }}
+                  animate={prefersReducedMotion ? undefined : { rotate: 0, opacity: 1 }}
+                  exit={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
                   <X className="h-6 w-6 text-white" />
@@ -140,9 +141,9 @@ export function MainNavigation({ className }: MainNavigationProps) {
               ) : (
                 <motion.div
                   key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
+                  initial={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
+                  animate={prefersReducedMotion ? undefined : { rotate: 0, opacity: 1 }}
+                  exit={prefersReducedMotion ? undefined : { rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
                   <Menu className="h-6 w-6 text-white" />
@@ -167,9 +168,9 @@ export function MainNavigation({ className }: MainNavigationProps) {
 
               {/* Mobile Menu */}
               <motion.div
-                initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: -20, scale: 0.95 }}
+                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                exit={prefersReducedMotion ? undefined : { opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="fixed top-20 left-4 right-4 z-50 p-4 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl"
               >
@@ -219,8 +220,8 @@ export function MainNavigation({ className }: MainNavigationProps) {
                         {/* Sub-items for mobile */}
                         {item.subItems && isActive && (
                           <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
+                            initial={prefersReducedMotion ? undefined : { opacity: 0, height: 0 }}
+                            animate={prefersReducedMotion ? undefined : { opacity: 1, height: "auto" }}
                             className="ml-6 mt-2 space-y-1"
                           >
                             {item.subItems.map((subItem) => (

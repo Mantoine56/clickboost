@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, Variants } from "framer-motion"
+import { motion, Variants, useReducedMotion } from "framer-motion"
 import { ExternalLink, Github, Eye, Calendar, Award } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ProjectCategory } from "@/lib/types"
@@ -117,19 +117,21 @@ export function PortfolioItem({
 }: PortfolioItemProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
 
   const categoryStyle = categoryColors[category]
 
   return (
     <motion.div
-      variants={cardVariants}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
+      variants={prefersReducedMotion ? undefined : cardVariants}
+      initial={prefersReducedMotion ? undefined : "initial"}
+      animate={prefersReducedMotion ? undefined : "animate"}
+      whileHover={prefersReducedMotion ? undefined : "hover"}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       style={{ 
-        animationDelay: `${delay}ms`
+        animationDelay: `${delay}ms`,
+        willChange: "transform, opacity"
       }}
       className="group relative"
     >
@@ -151,7 +153,7 @@ export function PortfolioItem({
         {/* Image Container */}
         <div className="relative h-48 md:h-56 overflow-hidden">
           <motion.div
-            variants={imageVariants}
+            variants={prefersReducedMotion ? undefined : imageVariants}
             className="relative w-full h-full"
           >
             <Image
@@ -175,7 +177,7 @@ export function PortfolioItem({
 
           {/* Hover Overlay */}
           <motion.div
-            variants={overlayVariants}
+            variants={prefersReducedMotion ? undefined : overlayVariants}
             className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-3"
           >
             <Link href={caseStudyUrl}>
@@ -220,8 +222,8 @@ export function PortfolioItem({
           <div className="flex items-start justify-between mb-3">
             <div className="flex-1">
               <motion.h3
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ delay: delay * 0.001 + 0.1 }}
                 className="text-lg font-bold text-white mb-1 line-clamp-1"
               >
@@ -230,8 +232,8 @@ export function PortfolioItem({
               
               {client && (
                 <motion.p
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={prefersReducedMotion ? undefined : { opacity: 0, y: 5 }}
+                  animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
                   transition={{ delay: delay * 0.001 + 0.15 }}
                   className="text-sm text-white/60"
                 >
@@ -241,8 +243,8 @@ export function PortfolioItem({
             </div>
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.8 }}
+              animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
               transition={{ delay: delay * 0.001 + 0.2 }}
               className={cn(
                 "px-2 py-1 rounded-full text-xs font-medium border",
@@ -257,8 +259,8 @@ export function PortfolioItem({
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: delay * 0.001 + 0.2 }}
             className="text-white/70 text-sm leading-relaxed mb-4 line-clamp-2"
           >
@@ -270,9 +272,9 @@ export function PortfolioItem({
             {technologies.slice(0, 4).map((tech, index) => (
               <motion.span
                 key={tech}
-                variants={techVariants}
-                initial="initial"
-                animate="animate"
+                variants={prefersReducedMotion ? undefined : techVariants}
+                initial={prefersReducedMotion ? undefined : "initial"}
+                animate={prefersReducedMotion ? undefined : "animate"}
                 custom={index}
                 className="px-2 py-1 text-xs bg-white/10 text-white/80 rounded-md border border-white/20"
               >

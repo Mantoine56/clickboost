@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { motion, Variants } from "framer-motion"
+import { motion, Variants, useReducedMotion } from "framer-motion"
 import { LucideIcon, ArrowRight, Check, Code, Smartphone, Palette } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -93,6 +93,7 @@ export function ServiceCard({
   deliveryTime
 }: ServiceCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
 
   // Map string icon names from content to Lucide icons in the client component
   const iconMap: Record<string, LucideIcon> = {
@@ -104,15 +105,16 @@ export function ServiceCard({
 
   return (
     <motion.div
-      variants={cardVariants}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
+      variants={prefersReducedMotion ? undefined : cardVariants}
+      initial={prefersReducedMotion ? undefined : "initial"}
+      animate={prefersReducedMotion ? undefined : "animate"}
+      whileHover={prefersReducedMotion ? undefined : "hover"}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       style={{ 
         perspective: "1000px",
-        transformStyle: "preserve-3d"
+        transformStyle: "preserve-3d",
+        willChange: "transform, opacity"
       }}
       className="group relative"
     >
@@ -120,24 +122,24 @@ export function ServiceCard({
         // Fade-and-lift entrance for the card content with configurable delay
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ delay, duration: prefersReducedMotion ? 0.2 : 0.6, ease: [0.4, 0, 0.2, 1] }}
         className="relative h-full p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden"
       >
         {/* Animated Glow Effect */}
         <motion.div
           className="absolute -inset-4 rounded-3xl blur-xl opacity-0"
           style={{ background: gradient }}
-          variants={glowVariants}
-          initial="initial"
-          animate={isHovered ? "hover" : "initial"}
+          variants={prefersReducedMotion ? undefined : glowVariants}
+          initial={prefersReducedMotion ? undefined : "initial"}
+          animate={prefersReducedMotion ? undefined : (isHovered ? "hover" : "initial")}
         />
 
         {/* Gradient Overlay */}
         <motion.div
           className="absolute inset-0 rounded-2xl opacity-0"
           style={{ background: gradient }}
-          animate={{ opacity: isHovered ? 0.1 : 0 }}
-          transition={{ duration: 0.3 }}
+          animate={{ opacity: prefersReducedMotion ? 0 : (isHovered ? 0.1 : 0) }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
         />
 
         {/* Content */}
@@ -147,7 +149,7 @@ export function ServiceCard({
             <motion.div
               className="p-3 rounded-xl"
               style={{ background: gradient }}
-              variants={iconVariants}
+              variants={prefersReducedMotion ? undefined : iconVariants}
             >
               <Icon className={cn("h-6 w-6", iconColor)} />
             </motion.div>
@@ -166,18 +168,18 @@ export function ServiceCard({
           </div>
 
           {/* Title and Description */}
-          <motion.h3
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+              <motion.h3
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: delay + 0.1 }}
             className="text-xl font-bold text-white mb-2"
           >
             {title}
           </motion.h3>
           
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+              <motion.p
+                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: delay + 0.15 }}
             className="text-white/70 text-sm leading-relaxed mb-6 flex-1"
           >
@@ -189,9 +191,9 @@ export function ServiceCard({
             {features.slice(0, 4).map((feature, index) => (
               <motion.div
                 key={feature}
-                variants={featureVariants}
-                initial="initial"
-                animate="animate"
+                variants={prefersReducedMotion ? undefined : featureVariants}
+                initial={prefersReducedMotion ? undefined : "initial"}
+                animate={prefersReducedMotion ? undefined : "animate"}
                 custom={index}
                 className="flex items-center gap-2 text-sm text-white/80"
               >
@@ -225,12 +227,12 @@ export function ServiceCard({
             <Link href={href} className="ml-auto">
               <motion.button
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-all duration-200 backdrop-blur-sm border border-white/20"
-                whileHover={{ scale: 1.05, x: 2 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.05, x: 2 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
               >
                 Learn More
                 <motion.div
-                  animate={{ x: isHovered ? 2 : 0 }}
+                  animate={prefersReducedMotion ? undefined : { x: isHovered ? 2 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
                   <ArrowRight className="h-4 w-4" />
@@ -248,8 +250,8 @@ export function ServiceCard({
             WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'exclude'
           }}
-          animate={{ opacity: isHovered ? 0.3 : 0 }}
-          transition={{ duration: 0.3 }}
+          animate={{ opacity: prefersReducedMotion ? 0 : (isHovered ? 0.3 : 0) }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
         />
       </motion.div>
     </motion.div>

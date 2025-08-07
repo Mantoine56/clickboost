@@ -8,17 +8,17 @@
   "technologies": ["React", "Next.js", "Node.js", "PostgreSQL", "Stripe", "AWS", "Redis"],
   "images": [
     {
-      "url": "/portfolio/ecommerce-hero.jpg",
+      "url": "/portfolio/ecommerce-hero.svg",
       "alt": "E-commerce platform homepage",
       "type": "hero"
     },
     {
-      "url": "/portfolio/ecommerce-dashboard.jpg",
+      "url": "/portfolio/ecommerce-hero.svg",
       "alt": "Admin dashboard interface",
       "type": "screenshot"
     },
     {
-      "url": "/portfolio/ecommerce-mobile.jpg",
+      "url": "/portfolio/ecommerce-hero.svg",
       "alt": "Mobile responsive design",
       "type": "mockup"
     }

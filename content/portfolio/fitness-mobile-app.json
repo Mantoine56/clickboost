@@ -8,17 +8,17 @@
   "technologies": ["React Native", "Firebase", "Redux", "Expo", "Stripe", "HealthKit", "Google Fit"],
   "images": [
     {
-      "url": "/portfolio/fittrack-hero.jpg",
+      "url": "/portfolio/fittrack-hero.svg",
       "alt": "FitTrack app main interface",
       "type": "hero"
     },
     {
-      "url": "/portfolio/fittrack-workout.jpg",
+      "url": "/portfolio/fittrack-hero.svg",
       "alt": "Workout tracking screen",
       "type": "screenshot"
     },
     {
-      "url": "/portfolio/fittrack-social.jpg",
+      "url": "/portfolio/fittrack-hero.svg",
       "alt": "Social features interface",
       "type": "screenshot"
     }

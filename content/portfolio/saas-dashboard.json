@@ -8,17 +8,17 @@
   "technologies": ["React", "TypeScript", "D3.js", "Node.js", "MongoDB", "WebSocket", "Docker"],
   "images": [
     {
-      "url": "/portfolio/saas-hero.jpg",
+      "url": "/portfolio/saas-hero.svg",
       "alt": "SaaS dashboard overview",
       "type": "hero"
     },
     {
-      "url": "/portfolio/saas-analytics.jpg",
+      "url": "/portfolio/saas-hero.svg",
       "alt": "Analytics visualization",
       "type": "screenshot"
     },
     {
-      "url": "/portfolio/saas-reports.jpg",
+      "url": "/portfolio/saas-hero.svg",
       "alt": "Custom reports interface",
       "type": "screenshot"
     }
