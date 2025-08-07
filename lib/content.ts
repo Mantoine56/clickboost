@@ -25,7 +25,16 @@ export async function getService(id: string): Promise<Service | null> {
 
 // Portfolio content utilities
 export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
-  const projectIds = ['ecommerce-platform', 'fitness-mobile-app', 'saas-dashboard']
+  // Extended with projects sourced from user's GitHub profile
+  const projectIds = [
+    'ecommerce-platform',
+    'fitness-mobile-app',
+    'saas-dashboard',
+    'finance-tracker',
+    'cashme',
+    'onedge',
+    'shabebcatan'
+  ]
   
   const projects = await Promise.all(
     projectIds.map(async (id) => {

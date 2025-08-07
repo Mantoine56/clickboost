@@ -1,0 +1,17 @@
+{
+  "id": "cashme",
+  "title": "CashMe",
+  "client": "Open Source",
+  "description": "Payment and payouts demo with modern UI and integrations.",
+  "fullDescription": "A streamlined payment experience showcasing card payments, payouts, and transaction history with a reactive UI.",
+  "category": "web",
+  "technologies": ["Next.js", "TypeScript", "Stripe", "React"],
+  "images": [
+    { "url": "/portfolio/cashme.svg", "alt": "CashMe UI", "type": "hero" }
+  ],
+  "githubUrl": "https://github.com/Mantoine56/cashme",
+  "featured": false,
+  "completedDate": "2024-05-15"
+}
+
+

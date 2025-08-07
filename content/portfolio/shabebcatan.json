@@ -1,0 +1,17 @@
+{
+  "id": "shabebcatan",
+  "title": "ShabebCatan",
+  "client": "Open Source",
+  "description": "A Catan-inspired game project experiment.",
+  "fullDescription": "Experimental board game mechanics and UI built with TypeScript and React.",
+  "category": "web",
+  "technologies": ["TypeScript", "React", "Vite"],
+  "images": [
+    { "url": "/portfolio/shabebcatan.svg", "alt": "ShabebCatan", "type": "hero" }
+  ],
+  "githubUrl": "https://github.com/Mantoine56/shabebcatan",
+  "featured": false,
+  "completedDate": "2023-09-30"
+}
+
+

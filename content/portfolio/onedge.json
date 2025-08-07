@@ -1,0 +1,17 @@
+{
+  "id": "onedge",
+  "title": "OnEdge",
+  "client": "Open Source",
+  "description": "Edge-ready app demonstrating modern SSR/ISR patterns.",
+  "fullDescription": "A showcase of fast edge-rendered pages and streaming UI patterns using Next.js.",
+  "category": "web",
+  "technologies": ["Next.js", "TypeScript", "Vercel", "Edge Runtime"],
+  "images": [
+    { "url": "/portfolio/onedge.svg", "alt": "OnEdge project", "type": "hero" }
+  ],
+  "githubUrl": "https://github.com/Mantoine56/onedge",
+  "featured": false,
+  "completedDate": "2024-02-10"
+}
+
+

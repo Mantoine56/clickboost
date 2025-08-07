@@ -1,0 +1,21 @@
+{
+  "id": "finance-tracker",
+  "title": "Finance Tracker",
+  "client": "Open Source",
+  "description": "A personal finance app to track expenses, budgets, and insights.",
+  "fullDescription": "A modern personal finance web app that lets users track income and expenses, categorize transactions, and visualize budgets. Built with a Next.js + TypeScript stack.",
+  "category": "web",
+  "technologies": ["Next.js", "TypeScript", "React", "Prisma", "PostgreSQL"],
+  "images": [
+    { "url": "/portfolio/finance-tracker.svg", "alt": "Finance Tracker dashboard", "type": "hero" }
+  ],
+  "githubUrl": "https://github.com/Mantoine56/finance-tracker",
+  "featured": true,
+  "completedDate": "2024-08-01",
+  "results": [
+    { "metric": "Active Users", "value": "1k+", "description": "Open source community usage" },
+    { "metric": "Transactions Tracked", "value": "100k+", "description": "Demo dataset and testers" }
+  ]
+}
+
+
