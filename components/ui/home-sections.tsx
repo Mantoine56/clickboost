@@ -93,13 +93,13 @@ export function StatsShowcase({ stats, className }: { stats: HomeStat[]; classNa
         <motion.div
           key={stat.id}
           variants={prefersReducedMotion ? undefined : itemVariants}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 shadow-xl"
+          className="relative overflow-hidden rounded-3xl border border-white/5 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.22),rgba(14,23,42,0.92)60%,rgba(3,7,18,0.85)100%)] p-6 shadow-xl"
         >
           <div className="text-4xl font-bold text-white md:text-5xl">{stat.value}</div>
-          <div className="mt-2 text-sm font-semibold uppercase tracking-wide text-blue-300/80">
+          <div className="mt-2 text-sm font-semibold uppercase tracking-wide text-sky-300/90">
             {stat.label}
           </div>
-          <p className="mt-3 text-sm text-white/70 leading-relaxed">{stat.description}</p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">{stat.description}</p>
         </motion.div>
       ))}
     </motion.div>
@@ -115,9 +115,9 @@ export function DifferentiatorsShowcase({
 }) {
   const prefersReducedMotion = useReducedMotion()
   const accentClasses = [
-    "from-blue-500/20 via-blue-500/5 to-transparent",
-    "from-purple-500/20 via-purple-500/5 to-transparent",
-    "from-emerald-500/20 via-emerald-500/5 to-transparent"
+    "from-sky-500/25 via-sky-500/5 to-transparent",
+    "from-indigo-500/25 via-indigo-500/5 to-transparent",
+    "from-purple-500/25 via-purple-500/5 to-transparent"
   ]
 
   return (
@@ -136,7 +136,7 @@ export function DifferentiatorsShowcase({
           <motion.div
             key={item.id}
             variants={prefersReducedMotion ? undefined : itemVariants}
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-xl backdrop-blur-xl"
           >
             <div
               className={cn(
@@ -152,11 +152,11 @@ export function DifferentiatorsShowcase({
                 <ShieldCheck className="h-5 w-5 text-white/40" aria-hidden="true" />
               </div>
               <h3 className="mt-6 text-xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm text-white/70 leading-relaxed">{item.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">{item.description}</p>
               <ul className="mt-6 space-y-3 text-sm text-white/70">
                 {item.points.map((point) => (
                   <li key={point} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-white/50" />
+                    <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-sky-300/80" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -180,7 +180,7 @@ export function ProcessTimeline({ steps, className }: { steps: ProcessStep[]; cl
       whileInView={prefersReducedMotion ? undefined : "show"}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <div className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-white/10 via-white/20 to-transparent" />
+      <div className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-sky-500/20 via-white/10 to-transparent" />
       <div className="space-y-10">
         {steps.map((step, index) => {
           const Icon = resolveIcon(step.icon)
@@ -189,10 +189,10 @@ export function ProcessTimeline({ steps, className }: { steps: ProcessStep[]; cl
             <motion.div
               key={step.id}
               variants={prefersReducedMotion ? undefined : itemVariants}
-              className="relative rounded-3xl border border-white/10 bg-white/5 p-6 pl-14 backdrop-blur-xl"
+              className="relative rounded-3xl border border-white/10 bg-slate-900/70 p-6 pl-14 shadow-xl backdrop-blur-xl"
             >
               <div className="absolute left-0 top-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-emerald-500/20 text-white shadow-lg">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500/40 via-indigo-500/30 to-purple-500/30 text-white shadow-lg">
                   <Icon className="h-5 w-5" />
                 </div>
               </div>
@@ -203,7 +203,7 @@ export function ProcessTimeline({ steps, className }: { steps: ProcessStep[]; cl
                 </span>
               </div>
               <p className="mt-3 text-sm leading-relaxed text-white/70">{step.description}</p>
-              <div className="mt-4 flex items-center gap-2 text-xs uppercase tracking-wide text-blue-200/80">
+              <div className="mt-4 flex items-center gap-2 text-xs uppercase tracking-wide text-sky-200/80">
                 <Gauge className="h-4 w-4" />
                 {step.outcome}
               </div>
@@ -239,7 +239,7 @@ export function TechnologiesShowcase({
           <motion.div
             key={category.id}
             variants={prefersReducedMotion ? undefined : itemVariants}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 backdrop-blur-xl"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-xl backdrop-blur-xl"
           >
             <div className="relative z-10 flex flex-col gap-4">
               <div className="flex items-start justify-between gap-4">
@@ -277,7 +277,7 @@ export function TrustedBySection({ partners, className }: { partners: TrustedPar
 
   return (
     <motion.div
-      className={cn("rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl", className)}
+      className={cn("rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-xl backdrop-blur-xl", className)}
       variants={prefersReducedMotion ? undefined : containerVariants}
       initial={prefersReducedMotion ? undefined : "hidden"}
       whileInView={prefersReducedMotion ? undefined : "show"}
@@ -285,7 +285,7 @@ export function TrustedBySection({ partners, className }: { partners: TrustedPar
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <div className="rounded-full bg-blue-500/20 p-2 text-blue-200">
+          <div className="rounded-full bg-sky-500/20 p-2 text-sky-200">
             <Sparkles className="h-4 w-4" />
           </div>
           <div>
@@ -303,7 +303,7 @@ export function TrustedBySection({ partners, className }: { partners: TrustedPar
           <motion.div
             key={partner.id}
             variants={prefersReducedMotion ? undefined : itemVariants}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4"
+            className="rounded-2xl border border-white/10 bg-slate-950/60 p-4"
           >
             <div className="text-sm font-semibold text-white">{partner.name}</div>
             <p className="mt-2 text-sm text-white/70 leading-relaxed">{partner.description}</p>
@@ -352,7 +352,7 @@ export function TestimonialsShowcase({
             key={testimonial.id}
             variants={prefersReducedMotion ? undefined : itemVariants}
             className={cn(
-              "relative flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 backdrop-blur-xl",
+              "relative flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-xl backdrop-blur-xl",
               index === 0 ? "lg:col-span-1 xl:col-span-1" : ""
             )}
           >
@@ -372,7 +372,7 @@ export function TestimonialsShowcase({
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-1 rounded-full bg-yellow-500/10 px-3 py-1 text-sm font-semibold text-yellow-300">
+              <div className="flex items-center gap-1 rounded-full bg-amber-400/10 px-3 py-1 text-sm font-semibold text-amber-300">
                 <Star className="h-4 w-4 fill-current" />
                 {testimonial.rating.toFixed(1)}
               </div>

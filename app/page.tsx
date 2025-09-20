@@ -28,10 +28,10 @@ export default async function Home() {
   ])
 
   return (
-    <div className="relative min-h-screen bg-black/[0.96]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.18),transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(147,51,234,0.16),transparent_60%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(16,185,129,0.12),transparent_55%)]" />
+    <div className="relative overflow-hidden bg-[#050816] text-white">
+      <div className="pointer-events-none absolute inset-x-0 top-[-30%] h-[640px] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.35)_0%,rgba(88,28,135,0.15)_45%,rgba(4,7,18,0)_75%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-[-40%] h-[720px] bg-[radial-gradient(circle_at_bottom,rgba(37,99,235,0.3)_0%,rgba(3,7,18,0.05)_55%,rgba(3,7,18,0)_80%)]" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[480px] bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.22)_0%,rgba(4,7,18,0)_70%)] blur-3xl" />
       {/* Hero */}
       <section className="relative">
         <SplineSceneBasic
@@ -44,209 +44,200 @@ export default async function Home() {
         />
       </section>
 
-      {/* Impact Snapshot */}
-      <section className="relative -mt-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-20 mx-auto max-w-6xl">
-          <div className="mb-10 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" /> Impact at a glance
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-              Proven outcomes from idea to launch
-            </h2>
-            <p className="mt-3 text-white/70">
-              We rally around measurable results—speed to market, user adoption, and the metrics that matter.
-            </p>
+      <div className="relative z-10 space-y-24 pb-24">
+        {/* Impact Snapshot */}
+        <section className="relative -mt-24 px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-6xl">
+            <SectionHeader
+              eyebrow="Impact at a glance"
+              title="Proven outcomes from idea to launch"
+              description="We rally around measurable results—speed to market, user adoption, and the metrics that matter."
+            />
+            <StatsShowcase stats={homeContent.stats} className="mt-12" />
+            <TrustedBySection partners={homeContent.trustedBy} className="mt-12" />
           </div>
-          <StatsShowcase stats={homeContent.stats} />
-          <TrustedBySection partners={homeContent.trustedBy} className="mt-10" />
-        </div>
-      </section>
+        </section>
 
-      {/* Differentiators */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-              Why teams choose ClickBoost
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-              Product partners invested in your success metrics
-            </h2>
-            <p className="mt-3 text-white/70">
-              Strategy, design, and engineering working as one squad to ship experiences that move the needle.
-            </p>
+        {/* Differentiators */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Why teams choose ClickBoost"
+              title="Product partners invested in your success metrics"
+              description="Strategy, design, and engineering working as one squad to ship experiences that move the needle."
+            />
+            <DifferentiatorsShowcase differentiators={homeContent.differentiators} className="mt-14" />
           </div>
-          <DifferentiatorsShowcase differentiators={homeContent.differentiators} className="mt-12" />
-        </div>
-      </section>
+        </section>
 
-      {/* Services Preview */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-                Services & capabilities
-              </span>
-              <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-                Solutions engineered for outcomes
-              </h2>
-              <p className="mt-3 max-w-2xl text-white/70">
-                From zero-to-one product launches to enterprise modernization, we combine strategy, design, and engineering to ship the experiences your users expect.
-              </p>
-            </div>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:text-white"
-            >
-              View full services →
-            </Link>
-          </div>
-          <ServiceGrid>
-            {services.slice(0, 3).map((service, index) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                description={service.shortDescription}
-                iconName={service.icon}
-                features={service.features}
-                gradient={service.gradient}
-                iconColor={service.iconColor}
-                href={`/services/${service.id}`}
-                startingPrice={service.startingPrice}
-                deliveryTime={service.deliveryTime}
-                delay={index * 0.15}
+        {/* Services Preview */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl">
+            <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
+              <SectionHeader
+                eyebrow="Services & capabilities"
+                title="Solutions engineered for outcomes"
+                description="From zero-to-one product launches to enterprise modernization, we combine strategy, design, and engineering to ship the experiences your users expect."
+                align="left"
               />
-            ))}
-          </ServiceGrid>
-        </div>
-      </section>
-
-      {/* Delivery Process */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-            Delivery framework
-          </span>
-          <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-            A repeatable playbook from discovery to launch
-          </h2>
-          <p className="mt-3 text-white/70">
-            Every engagement follows a transparent cadence designed to uncover opportunities fast, ship confidently, and iterate with data-backed decisions.
-          </p>
-          <ProcessTimeline steps={homeContent.process} className="mt-12" />
-        </div>
-      </section>
-
-      {/* Featured Projects */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-                Selected case studies
-              </span>
-              <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-                Launches that elevated growth and customer experience
-              </h2>
-              <p className="mt-3 max-w-2xl text-white/70">
-                Browse a sample of the platforms, products, and internal tools we have shipped alongside ambitious teams.
-              </p>
-            </div>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:text-white"
-            >
-              View all projects →
-            </Link>
-          </div>
-          <PortfolioGrid>
-            {featured.map((project, index) => (
-              <PortfolioItem
-                key={project.id}
-                id={project.id}
-                title={project.title}
-                description={project.description}
-                image={project.images[0]?.url || '/placeholder-project.jpg'}
-                category={project.category}
-                technologies={project.technologies}
-                liveUrl={project.liveUrl}
-                githubUrl={project.githubUrl}
-                caseStudyUrl={`/portfolio/${project.id}`}
-                featured={project.featured}
-                completedDate={project.completedDate}
-                client={project.client}
-                delay={index * 100}
-              />
-            ))}
-          </PortfolioGrid>
-        </div>
-      </section>
-
-      {/* Technology Stack */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-              Technology & tooling
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-              A stack built for velocity and scale
-            </h2>
-            <p className="mt-3 text-white/70">
-              We lean on modern frameworks, best-in-class infrastructure, and automation to deliver features faster—without compromising quality or security.
-            </p>
-          </div>
-          <TechnologiesShowcase categories={homeContent.technologies} className="mt-12" />
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-6xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
-              Partner stories
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">
-              Teams that ship with ClickBoost stay for the long haul
-            </h2>
-            <p className="mt-3 text-white/70">
-              Hear how we help founders, product leaders, and operations teams translate bold ideas into shipped software.
-            </p>
-          </div>
-          <TestimonialsShowcase testimonials={testimonials} className="mt-12" />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative pb-32 px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 mx-auto max-w-4xl text-center">
-          <div className="rounded-3xl border border-white/20 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-8 shadow-2xl backdrop-blur-xl md:p-12">
-            <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Ready to launch your next release?
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/70">
-              Let’s co-create a roadmap, ship a production-ready experience, and build the foundation for continuous delivery.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 text-sm font-medium text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:from-blue-600 hover:to-purple-700"
+                href="/services"
+                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
               >
-                Book a strategy session
+                View full services →
               </Link>
+            </div>
+            <ServiceGrid className="mt-12">
+              {services.slice(0, 3).map((service, index) => (
+                <ServiceCard
+                  key={service.id}
+                  title={service.title}
+                  description={service.shortDescription}
+                  iconName={service.icon}
+                  features={service.features}
+                  gradient={service.gradient}
+                  iconColor={service.iconColor}
+                  href={`/services/${service.id}`}
+                  startingPrice={service.startingPrice}
+                  deliveryTime={service.deliveryTime}
+                  delay={index * 0.15}
+                />
+              ))}
+            </ServiceGrid>
+          </div>
+        </section>
+
+        {/* Delivery Process */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-5xl text-center">
+            <SectionHeader
+              eyebrow="Delivery framework"
+              title="A repeatable playbook from discovery to launch"
+              description="Every engagement follows a transparent cadence designed to uncover opportunities fast, ship confidently, and iterate with data-backed decisions."
+            />
+            <ProcessTimeline steps={homeContent.process} className="mt-14" />
+          </div>
+        </section>
+
+        {/* Featured Projects */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl">
+            <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
+              <SectionHeader
+                eyebrow="Selected case studies"
+                title="Launches that elevated growth and customer experience"
+                description="Browse a sample of the platforms, products, and internal tools we have shipped alongside ambitious teams."
+                align="left"
+              />
               <Link
                 href="/portfolio"
-                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/30 hover:text-white"
+                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
               >
-                Explore our work
+                View all projects →
               </Link>
             </div>
+            <PortfolioGrid className="mt-12">
+              {featured.map((project, index) => (
+                <PortfolioItem
+                  key={project.id}
+                  id={project.id}
+                  title={project.title}
+                  description={project.description}
+                  image={project.images[0]?.url || "/placeholder-project.jpg"}
+                  category={project.category}
+                  technologies={project.technologies}
+                  liveUrl={project.liveUrl}
+                  githubUrl={project.githubUrl}
+                  caseStudyUrl={`/portfolio/${project.id}`}
+                  featured={project.featured}
+                  completedDate={project.completedDate}
+                  client={project.client}
+                  delay={index * 100}
+                />
+              ))}
+            </PortfolioGrid>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Technology Stack */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Technology & tooling"
+              title="A stack built for velocity and scale"
+              description="We lean on modern frameworks, best-in-class infrastructure, and automation to deliver features faster—without compromising quality or security."
+            />
+            <TechnologiesShowcase categories={homeContent.technologies} className="mt-14" />
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-6xl">
+            <SectionHeader
+              eyebrow="Partner stories"
+              title="Teams that ship with ClickBoost stay for the long haul"
+              description="Hear how we help founders, product leaders, and operations teams translate bold ideas into shipped software."
+            />
+            <TestimonialsShowcase testimonials={testimonials} className="mt-14" />
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="relative px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-4xl text-center">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),rgba(99,102,241,0.08)_45%,rgba(15,23,42,0.8)_85%)] p-8 shadow-2xl backdrop-blur-xl md:p-12">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.18),transparent_55%)]" />
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold md:text-4xl">Ready to launch your next release?</h2>
+                <p className="mt-4 text-lg leading-relaxed text-white/70">
+                  Let’s co-create a roadmap, ship a production-ready experience, and build the foundation for continuous delivery.
+                </p>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 px-8 py-4 text-sm font-medium text-white shadow-lg transition-transform duration-200 hover:scale-105"
+                  >
+                    Book a strategy session
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                  >
+                    Explore our work
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+type SectionHeaderProps = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  align?: "center" | "left";
+};
+
+function SectionHeader({ eyebrow, title, description, align = "center" }: SectionHeaderProps) {
+  const isLeft = align === "left";
+  return (
+    <div
+      className={
+        isLeft
+          ? "max-w-3xl text-center md:max-w-2xl md:text-left"
+          : "mx-auto max-w-3xl text-center"
+      }
+    >
+      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white/60">
+        <span className="h-1.5 w-1.5 rounded-full bg-sky-400" /> {eyebrow}
+      </span>
+      <h2 className="mt-4 text-3xl font-bold md:text-4xl">{title}</h2>
+      <p className="mt-3 text-white/70">{description}</p>
     </div>
   );
 }

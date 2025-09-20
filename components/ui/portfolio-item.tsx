@@ -135,7 +135,7 @@ export function PortfolioItem({
       }}
       className="group relative"
     >
-      <div className="relative h-full rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden">
+      <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-xl">
         
         {/* Featured Badge */}
         {featured && (
@@ -178,7 +178,7 @@ export function PortfolioItem({
           {/* Hover Overlay */}
           <motion.div
             variants={prefersReducedMotion ? undefined : overlayVariants}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-3"
+            className="absolute inset-0 flex items-center justify-center gap-3 bg-slate-950/70 backdrop-blur-sm"
           >
             <Link href={caseStudyUrl}>
               <motion.button

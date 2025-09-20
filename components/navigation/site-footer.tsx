@@ -37,7 +37,7 @@ export async function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative mt-24 border-t border-white/10 bg-black/80 text-white">
+    <footer className="relative mt-16 border-t border-white/10 bg-[#040915] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(59,130,246,0.2),transparent_65%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(139,92,246,0.18),transparent_65%)]" />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -91,7 +91,7 @@ export async function SiteFooter() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors hover:border-white/20 hover:text-white"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-colors duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
                     aria-label={social.platform}
                   >
                     <Icon className="h-4 w-4" />
@@ -106,7 +106,7 @@ export async function SiteFooter() {
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               {serviceLinks.map((service) => (
                 <li key={service.href}>
-                  <Link href={service.href} className="transition-colors hover:text-white">
+                  <Link href={service.href} className="transition-colors duration-200 hover:text-white">
                     {service.label}
                   </Link>
                 </li>
@@ -119,7 +119,7 @@ export async function SiteFooter() {
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               {projectLinks.map((project) => (
                 <li key={project.href}>
-                  <Link href={project.href} className="transition-colors hover:text-white">
+                  <Link href={project.href} className="transition-colors duration-200 hover:text-white">
                     {project.label}
                   </Link>
                 </li>
@@ -136,7 +136,7 @@ export async function SiteFooter() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-5 py-3 text-sm font-medium text-white shadow-lg transition-transform duration-200 hover:scale-105 hover:from-blue-600 hover:to-purple-700"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 px-5 py-3 text-sm font-medium text-white shadow-lg transition-transform duration-200 hover:scale-105"
             >
               Start a project
               <ArrowUpRight className="h-4 w-4" />
@@ -150,7 +150,7 @@ export async function SiteFooter() {
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {utilityLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition-colors hover:text-white">
+              <Link key={link.href} href={link.href} className="transition-colors duration-200 hover:text-white">
                 {link.label}
               </Link>
             ))}
