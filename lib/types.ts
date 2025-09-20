@@ -162,6 +162,58 @@ export interface ContactInfo {
   }
 }
 
+// Home Page Content Models
+export interface HomeStat {
+  id: string
+  value: string
+  label: string
+  description: string
+}
+
+export interface Differentiator {
+  id: string
+  title: string
+  description: string
+  icon: string
+  points: string[]
+}
+
+export interface ProcessStep {
+  id: string
+  title: string
+  description: string
+  icon: string
+  duration: string
+  outcome: string
+}
+
+export interface TechTool {
+  name: string
+  description: string
+}
+
+export interface TechCategory {
+  id: string
+  title: string
+  icon: string
+  tools: TechTool[]
+}
+
+export interface TrustedPartner {
+  id: string
+  name: string
+  description: string
+  tagline?: string
+}
+
+export interface HomeContent {
+  stats: HomeStat[]
+  differentiators: Differentiator[]
+  process: ProcessStep[]
+  technologies: TechCategory[]
+  trustedBy: TrustedPartner[]
+}
+
 // Testimonial Models
 export interface Testimonial {
   id: string

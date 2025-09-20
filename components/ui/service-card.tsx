@@ -123,7 +123,7 @@ export function ServiceCard({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay, duration: prefersReducedMotion ? 0.2 : 0.6, ease: [0.4, 0, 0.2, 1] }}
-        className="relative h-full p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden"
+        className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60 p-6 shadow-2xl backdrop-blur-xl"
       >
         {/* Animated Glow Effect */}
         <motion.div
@@ -168,20 +168,20 @@ export function ServiceCard({
           </div>
 
           {/* Title and Description */}
-              <motion.h3
-                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
-                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+          <motion.h3
+            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: delay + 0.1 }}
-            className="text-xl font-bold text-white mb-2"
+            className="mb-2 text-xl font-bold text-white"
           >
             {title}
           </motion.h3>
-          
-              <motion.p
-                initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
-                animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+
+          <motion.p
+            initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+            animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: delay + 0.15 }}
-            className="text-white/70 text-sm leading-relaxed mb-6 flex-1"
+            className="mb-6 flex-1 text-sm leading-relaxed text-white/70"
           >
             {description}
           </motion.p>

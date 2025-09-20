@@ -1,0 +1,201 @@
+{
+  "stats": [
+    {
+      "id": "products",
+      "value": "150+",
+      "label": "Digital products shipped",
+      "description": "Full-stack web apps, mobile platforms, and internal tools launched with measurable ROI."
+    },
+    {
+      "id": "satisfaction",
+      "value": "4.9/5",
+      "label": "Partner satisfaction",
+      "description": "Average rating from founders, product teams, and stakeholders after launch retrospectives."
+    },
+    {
+      "id": "velocity",
+      "value": "30 days",
+      "label": "Average pilot timeline",
+      "description": "From discovery to a production-ready MVP that your team can put in front of real users."
+    },
+    {
+      "id": "stack",
+      "value": "25+",
+      "label": "Modern technologies mastered",
+      "description": "Battle-tested tooling that keeps experiences fast, accessible, and easy to evolve."
+    }
+  ],
+  "differentiators": [
+    {
+      "id": "product-partners",
+      "title": "Product partners from day one",
+      "description": "We embed strategy, design, and engineering into a single squad that ships in lockstep with your team.",
+      "icon": "Handshake",
+      "points": [
+        "Discovery workshops that align stakeholders and success metrics",
+        "Dedicated product lead focused on business impact, not just deliverables",
+        "Transparent roadmaps with weekly outcomes, demos, and insights"
+      ]
+    },
+    {
+      "id": "experience-engineered",
+      "title": "Experience engineered for scale",
+      "description": "From design systems to cloud-native infrastructure, everything we ship is ready to grow with you.",
+      "icon": "Layers",
+      "points": [
+        "Reusable component libraries and accessible UI foundations",
+        "Event-driven architectures and resilient API integrations",
+        "Automated testing, observability, and performance budgets baked in"
+      ]
+    },
+    {
+      "id": "continuous-growth",
+      "title": "Continuous growth, not one-off launches",
+      "description": "We stay close to your metrics after go-live, iterating on data and user feedback to keep shipping wins.",
+      "icon": "TrendingUp",
+      "points": [
+        "Lifecycle support packages tuned to your roadmap cadence",
+        "Experimentation frameworks to validate ideas quickly",
+        "Insights dashboards that surface product and business KPIs"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "id": "discover",
+      "title": "Discover & Blueprint",
+      "description": "We dive into your market, users, and success criteria to define a product vision everyone rallies behind.",
+      "icon": "Lightbulb",
+      "duration": "Week 1",
+      "outcome": "Product strategy, success metrics, and prioritized backlog"
+    },
+    {
+      "id": "design",
+      "title": "Design & Prototype",
+      "description": "High-fidelity UX flows, interactive prototypes, and design systems that make hand-off effortless.",
+      "icon": "PenTool",
+      "duration": "Weeks 2-3",
+      "outcome": "Clickable prototype, validated experience map, and UI kit"
+    },
+    {
+      "id": "build",
+      "title": "Build & Integrate",
+      "description": "Cross-functional engineers ship production code with automated QA, analytics, and documentation.",
+      "icon": "Code2",
+      "duration": "Weeks 3-6",
+      "outcome": "Feature-complete product running on scalable infrastructure"
+    },
+    {
+      "id": "launch",
+      "title": "Launch & Grow",
+      "description": "Go-live support, observability, and iteration loops to keep momentum after launch.",
+      "icon": "Rocket",
+      "duration": "Week 6+",
+      "outcome": "Release plan, training, and optimization roadmap"
+    }
+  ],
+  "technologies": [
+    {
+      "id": "experience",
+      "title": "Front-end experience",
+      "icon": "LayoutDashboard",
+      "tools": [
+        {
+          "name": "Next.js & React",
+          "description": "Server Components, streaming, and SEO-ready experiences."
+        },
+        {
+          "name": "TypeScript",
+          "description": "End-to-end type safety across web, mobile, and backend."
+        },
+        {
+          "name": "Tailwind & Design Systems",
+          "description": "Accessible design languages that scale with your product."
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Platform & APIs",
+      "icon": "Server",
+      "tools": [
+        {
+          "name": "Node.js, NestJS, tRPC",
+          "description": "Robust API layers with real-time capabilities."
+        },
+        {
+          "name": "PostgreSQL, Prisma, Redis",
+          "description": "Reliable data stores optimized for performance and reporting."
+        },
+        {
+          "name": "GraphQL & REST integrations",
+          "description": "Secure connections to CRMs, ERPs, and third-party platforms."
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile & cross-platform",
+      "icon": "Smartphone",
+      "tools": [
+        {
+          "name": "React Native & Expo",
+          "description": "Native-quality apps shipped to iOS and Android from a single codebase."
+        },
+        {
+          "name": "Flutter",
+          "description": "Beautiful multi-platform interfaces with pixel-perfect control."
+        },
+        {
+          "name": "App Store operations",
+          "description": "Deployment, analytics, and growth tooling for mobile releases."
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "title": "Cloud & delivery",
+      "icon": "Cloud",
+      "tools": [
+        {
+          "name": "AWS, Vercel, Supabase",
+          "description": "Elastic infrastructure with world-class uptime and DX."
+        },
+        {
+          "name": "CI/CD automation",
+          "description": "Preview environments, testing pipelines, and instant rollbacks."
+        },
+        {
+          "name": "Observability & analytics",
+          "description": "Instrumentation with Datadog, OpenTelemetry, and custom dashboards."
+        }
+      ]
+    }
+  ],
+  "trustedBy": [
+    {
+      "id": "fintech",
+      "name": "Fintech founders",
+      "description": "Payments, lending, and wealth experiences that demand reliability.",
+      "tagline": "Stripe, Plaid, banking core integrations"
+    },
+    {
+      "id": "scaleups",
+      "name": "Growth-stage SaaS teams",
+      "description": "Iterating quickly on revenue-driving product roadmaps.",
+      "tagline": "Design systems, analytics, lifecycle automation"
+    },
+    {
+      "id": "commerce",
+      "name": "E-commerce & retail innovators",
+      "description": "Composable storefronts with personalized customer journeys.",
+      "tagline": "Headless commerce, inventory intelligence"
+    },
+    {
+      "id": "public",
+      "name": "Innovation labs & public sector",
+      "description": "Modern citizen and stakeholder portals built for accessibility.",
+      "tagline": "WCAG compliance, bilingual experiences"
+    }
+  ]
+}

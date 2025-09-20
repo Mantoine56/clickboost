@@ -7,6 +7,7 @@ import { ReactPlugin } from "@21st-extension/react";
 import { ThemeProvider } from "next-themes";
 // Global navigation bar
 import { MainNavigation } from "@/components/navigation/main-nav";
+import { SiteFooter } from "@/components/navigation/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -89,11 +90,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {/* Site-wide navigation: fixed so it appears on every page */}
-          <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+          <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2">
             <MainNavigation />
           </div>
 
-          {children}
+          <div className="flex min-h-screen flex-col">
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
         </ThemeProvider>
         {/* 21st.dev Toolbar for AI-powered editing - only renders in development mode */}
         <TwentyFirstToolbar
