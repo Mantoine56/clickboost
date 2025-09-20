@@ -1,0 +1,31 @@
+{
+  "testimonials": [
+    {
+      "id": "retailtech",
+      "name": "Amelia Flores",
+      "role": "Founder & CEO",
+      "company": "RetailTech Solutions",
+      "content": "ClickBoost translated a chaotic wishlist into a focused roadmap and shipped our new commerce platform in under two months. The analytics they baked in let us watch conversion lift in real time.",
+      "rating": 5,
+      "projectId": "ecommerce-platform"
+    },
+    {
+      "id": "stride-labs",
+      "name": "Liam O'Connor",
+      "role": "Head of Product",
+      "company": "Stride Labs",
+      "content": "Their team feels like an extension of ours. From design systems to CI/CD, ClickBoost gave us the foundations to ship new SaaS features weekly without regressions.",
+      "rating": 5,
+      "projectId": "saas-dashboard"
+    },
+    {
+      "id": "northwave",
+      "name": "Jasmin Patel",
+      "role": "Operations Lead",
+      "company": "Northwave Finance",
+      "content": "We launched our finance intelligence dashboard with confidence. Accessibility, data security, even stakeholder training—ClickBoost handled it all.",
+      "rating": 4.8,
+      "projectId": "finance-tracker"
+    }
+  ]
+}

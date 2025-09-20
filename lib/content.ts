@@ -1,4 +1,4 @@
-import { Service, PortfolioProject, TeamMember, HeroContent, AboutContent, ContactInfo } from './types'
+import { Service, PortfolioProject, TeamMember, HeroContent, AboutContent, ContactInfo, HomeContent, Testimonial } from './types'
 
 // Service content utilities
 export async function getServices(): Promise<Service[]> {
@@ -90,6 +90,16 @@ export async function getAboutContent(): Promise<AboutContent> {
 export async function getContactInfo(): Promise<ContactInfo> {
   const response = await import('../content/site/contact.json')
   return response.default as ContactInfo
+}
+
+export async function getHomeContent(): Promise<HomeContent> {
+  const response = await import('../content/site/home.json')
+  return response.default as HomeContent
+}
+
+export async function getTestimonials(): Promise<Testimonial[]> {
+  const response = await import('../content/site/testimonials.json')
+  return response.default.testimonials as Testimonial[]
 }
 
 // Utility functions for filtering and searching
