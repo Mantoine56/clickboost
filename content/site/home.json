@@ -172,6 +172,50 @@
       ]
     }
   ],
+  "engagements": [
+    {
+      "id": "launch-lab",
+      "title": "Launch Lab Sprint",
+      "description": "Validate your product vision and release an investor-ready MVP with a six-week cross-functional push.",
+      "focus": [
+        "Product discovery intensive with stakeholder alignment",
+        "Clickable prototype tested with real users",
+        "Production build with analytics, QA, and release playbook"
+      ],
+      "cta": {
+        "label": "Plan a launch sprint",
+        "href": "/contact"
+      }
+    },
+    {
+      "id": "scale-program",
+      "title": "Scale & Optimize Program",
+      "description": "Turn live products into growth engines with a continuous experimentation and delivery squad.",
+      "focus": [
+        "Conversion, retention, and ops metrics instrumentation",
+        "Prioritized experiment backlog with bi-weekly releases",
+        "Design system and platform improvements shipped alongside insights"
+      ],
+      "cta": {
+        "label": "Book a roadmap audit",
+        "href": "/contact"
+      }
+    },
+    {
+      "id": "platform-modernization",
+      "title": "Platform Modernization",
+      "description": "Rebuild legacy workflows into secure, scalable experiences without pausing your roadmap.",
+      "focus": [
+        "Architecture assessment and modernization blueprint",
+        "Iterative refactors that ship behind feature flags",
+        "Enablement for your internal team with documentation and training"
+      ],
+      "cta": {
+        "label": "Schedule a technical assessment",
+        "href": "/contact"
+      }
+    }
+  ],
   "trustedBy": [
     {
       "id": "fintech",

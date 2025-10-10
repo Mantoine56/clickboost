@@ -28,13 +28,15 @@ export function SplineSceneBasic({
   secondaryCtaHref?: string
 }) {
   return (
-    <Card className="w-full h-screen bg-black/[0.96] relative overflow-hidden border-0 rounded-none shadow-none">
+    <Card
+      className="relative h-screen w-full overflow-hidden border-0 rounded-none bg-gradient-to-b from-black via-[#050816]/95 to-[#040915] shadow-none after:absolute after:inset-x-0 after:bottom-0 after:h-64 after:bg-gradient-to-b after:from-transparent after:via-[#040915]/85 after:to-[#040915] after:content-['']"
+    >
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
       
-      <div className="flex h-full">
+      <div className="relative z-10 flex h-full">
         {/* Left content: marketing copy */}
         <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
           {subtitle && (
@@ -69,11 +71,14 @@ export function SplineSceneBasic({
         </div>
 
         {/* Right content */}
-        <div className="flex-1 relative">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+        <div className="relative flex-1">
+          <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1)_45%,rgba(0,0,0,0.6)_65%,rgba(0,0,0,0.15)_82%,rgba(0,0,0,0)_95%)]">
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="h-full w-full"
+            />
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#040915] via-[#040915]/75 to-transparent" />
         </div>
       </div>
     </Card>

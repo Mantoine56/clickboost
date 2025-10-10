@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Users, ArrowUpRight } from "lucide-react"
-import { getContactInfo, getServices, getFeaturedProjects } from "@/lib/content"
+import { Mail, Phone, Linkedin, Twitter, Github, Users, ArrowUpRight } from "lucide-react"
+import { getContactInfo, getServices, getHomeContent } from "@/lib/content"
 
 const socialIconMap = {
   linkedin: Linkedin,
@@ -10,10 +10,10 @@ const socialIconMap = {
 }
 
 export async function SiteFooter() {
-  const [contactInfo, services, featuredProjects] = await Promise.all([
+  const [contactInfo, services, homeContent] = await Promise.all([
     getContactInfo(),
     getServices(),
-    getFeaturedProjects()
+    getHomeContent()
   ])
 
   const serviceLinks = services.map((service) => ({
@@ -21,9 +21,9 @@ export async function SiteFooter() {
     href: `/services/${service.id}`
   }))
 
-  const projectLinks = featuredProjects.slice(0, 3).map((project) => ({
-    label: project.title,
-    href: `/portfolio/${project.id}`
+  const focusLinks = homeContent.trustedBy.map((partner) => ({
+    label: partner.name,
+    description: partner.description,
   }))
 
   const utilityLinks = [
@@ -37,10 +37,10 @@ export async function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative mt-16 border-t border-white/10 bg-[#040915] text-white">
+    <footer className="relative mt-8 border-t border-white/10 bg-[#040915] text-white before:absolute before:-top-24 before:left-0 before:right-0 before:h-24 before:bg-gradient-to-b before:from-transparent before:via-[#040915]/40 before:to-[#040915] before:content-['']">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(59,130,246,0.2),transparent_65%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_100%,rgba(139,92,246,0.18),transparent_65%)]" />
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="inline-flex items-center gap-2 text-2xl font-semibold">
@@ -65,20 +65,6 @@ export async function SiteFooter() {
                   <a href={`tel:${contactInfo.phone}`} className="hover:text-white">
                     {contactInfo.phone}
                   </a>
-                </div>
-              )}
-              {contactInfo.address && (
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 text-blue-300" />
-                  <div className="space-y-0.5">
-                    <p>{contactInfo.address.street}</p>
-                    <p>
-                      {contactInfo.address.city}, {contactInfo.address.province}
-                    </p>
-                    <p>
-                      {contactInfo.address.postalCode}, {contactInfo.address.country}
-                    </p>
-                  </div>
                 </div>
               )}
             </div>
@@ -115,13 +101,12 @@ export async function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Case studies</h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/70">
-              {projectLinks.map((project) => (
-                <li key={project.href}>
-                  <Link href={project.href} className="transition-colors duration-200 hover:text-white">
-                    {project.label}
-                  </Link>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Focus areas</h3>
+            <ul className="mt-4 space-y-4 text-sm text-white/70">
+              {focusLinks.map((area) => (
+                <li key={area.label}>
+                  <div className="text-white">{area.label}</div>
+                  <p className="text-white/60">{area.description}</p>
                 </li>
               ))}
             </ul>

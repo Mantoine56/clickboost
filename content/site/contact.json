@@ -1,13 +1,6 @@
 {
-  "email": "hello@clickboost.ca",
-  "phone": "+1 (555) 123-4567",
-  "address": {
-    "street": "123 Innovation Drive",
-    "city": "Toronto",
-    "province": "Ontario",
-    "postalCode": "M5V 3A8",
-    "country": "Canada"
-  },
+  "email": "antoine@clickboost.ca",
+  "phone": "613-894-4632",
   "socialMedia": [
     {
       "platform": "LinkedIn",

@@ -2,12 +2,10 @@ import Link from "next/link";
 import { SplineSceneBasic } from "@/components/ui/demo";
 import {
   getHeroContent,
-  getFeaturedProjects,
   getServices,
   getHomeContent,
   getTestimonials
 } from "@/lib/content";
-import { PortfolioGrid, PortfolioItem } from "@/components/ui/portfolio-item";
 import { ServiceGrid, ServiceCard } from "@/components/ui/service-card";
 import {
   StatsShowcase,
@@ -19,9 +17,8 @@ import {
 } from "@/components/ui/home-sections";
 
 export default async function Home() {
-  const [hero, featured, services, homeContent, testimonials] = await Promise.all([
+  const [hero, services, homeContent, testimonials] = await Promise.all([
     getHeroContent(),
-    getFeaturedProjects(),
     getServices(),
     getHomeContent(),
     getTestimonials()
@@ -44,10 +41,10 @@ export default async function Home() {
         />
       </section>
 
-      <div className="relative z-10 space-y-24 pb-24">
+      <div className="relative z-10 space-y-24 pb-16 lg:pb-24">
         {/* Impact Snapshot */}
-        <section className="relative -mt-24 px-4 sm:px-6 lg:px-8">
-          <div className="relative mx-auto max-w-6xl">
+        <section className="relative isolate -mt-24 px-4 sm:px-6 lg:px-8 before:absolute before:-top-28 before:left-0 before:right-0 before:h-36 before:bg-gradient-to-b before:from-[#040915] before:via-[#040915]/85 before:to-transparent before:content-['']">
+          <div className="relative z-10 mx-auto max-w-6xl">
             <SectionHeader
               eyebrow="Impact at a glance"
               title="Proven outcomes from idea to launch"
@@ -119,43 +116,43 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Featured Projects */}
+        {/* Engagement Programs */}
         <section className="relative px-4 sm:px-6 lg:px-8">
           <div className="relative mx-auto max-w-7xl">
-            <div className="flex flex-col gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
-              <SectionHeader
-                eyebrow="Selected case studies"
-                title="Launches that elevated growth and customer experience"
-                description="Browse a sample of the platforms, products, and internal tools we have shipped alongside ambitious teams."
-                align="left"
-              />
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white/80 transition-colors duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
-              >
-                View all projects →
-              </Link>
-            </div>
-            <PortfolioGrid className="mt-12">
-              {featured.map((project, index) => (
-                <PortfolioItem
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  description={project.description}
-                  image={project.images[0]?.url || "/placeholder-project.jpg"}
-                  category={project.category}
-                  technologies={project.technologies}
-                  liveUrl={project.liveUrl}
-                  githubUrl={project.githubUrl}
-                  caseStudyUrl={`/portfolio/${project.id}`}
-                  featured={project.featured}
-                  completedDate={project.completedDate}
-                  client={project.client}
-                  delay={index * 100}
-                />
+            <SectionHeader
+              eyebrow="Engagement programs"
+              title="Choose the collaboration model that fits your roadmap"
+              description="Whether you are validating an MVP, leveling up a live product, or modernizing a platform, we tailor squads around the outcomes you need most."
+              align="left"
+            />
+            <div className="mt-12 grid gap-8 lg:grid-cols-3">
+              {homeContent.engagements.map((engagement) => (
+                <div
+                  key={engagement.id}
+                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-xl"
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative z-10 flex h-full flex-col">
+                    <h3 className="text-2xl font-semibold text-white">{engagement.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/70">{engagement.description}</p>
+                    <ul className="mt-6 space-y-3 text-sm text-white/80">
+                      {engagement.focus.map((point) => (
+                        <li key={point} className="flex items-start gap-3">
+                          <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-400" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={engagement.cta.href}
+                      className="mt-8 inline-flex w-full items-center justify-center rounded-xl border border-white/10 bg-white/10 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white/20 hover:bg-white/20"
+                    >
+                      {engagement.cta.label}
+                    </Link>
+                  </div>
+                </div>
               ))}
-            </PortfolioGrid>
+            </div>
           </div>
         </section>
 
@@ -184,9 +181,9 @@ export default async function Home() {
         </section>
 
         {/* CTA */}
-        <section className="relative px-4 sm:px-6 lg:px-8">
+        <section className="relative px-4 pb-4 sm:px-6 lg:px-8 lg:pb-6 after:absolute after:-bottom-16 after:left-0 after:right-0 after:h-16 after:bg-gradient-to-b after:from-transparent after:to-[#040915]/80 after:content-['']">
           <div className="relative mx-auto max-w-4xl text-center">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),rgba(99,102,241,0.08)_45%,rgba(15,23,42,0.8)_85%)] p-8 shadow-2xl backdrop-blur-xl md:p-12">
+            <div className="relative z-10 overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),rgba(99,102,241,0.08)_45%,rgba(15,23,42,0.8)_85%)] p-8 shadow-2xl backdrop-blur-xl md:p-12">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.18),transparent_55%)]" />
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold md:text-4xl">Ready to launch your next release?</h2>

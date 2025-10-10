@@ -24,8 +24,6 @@
     "App Store Connect",
     "Google Play Console"
   ],
-  "startingPrice": "$8,000",
-  "deliveryTime": "6-12 weeks",
   "gradient": "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
   "iconColor": "text-purple-500"
 }

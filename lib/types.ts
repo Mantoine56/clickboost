@@ -206,11 +206,23 @@ export interface TrustedPartner {
   tagline?: string
 }
 
+export interface EngagementOffering {
+  id: string
+  title: string
+  description: string
+  focus: string[]
+  cta: {
+    label: string
+    href: string
+  }
+}
+
 export interface HomeContent {
   stats: HomeStat[]
   differentiators: Differentiator[]
   process: ProcessStep[]
   technologies: TechCategory[]
+  engagements: EngagementOffering[]
   trustedBy: TrustedPartner[]
 }
 
