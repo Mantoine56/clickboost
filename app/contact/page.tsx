@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import { 
   Mail, 
   Phone, 
@@ -95,10 +96,10 @@ export default async function ContactPage() {
                       <p className="text-white/60 text-sm mb-2">
                         Send us an email and we'll respond within 24 hours
                       </p>
-                      <a 
-                        href={`mailto:${contactInfo.email}`}
-                        className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
-                      >
+                  <a 
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                  >
                         {contactInfo.email}
                       </a>
                     </div>
@@ -189,7 +190,7 @@ export default async function ContactPage() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-white">Quick Actions</h3>
                   
-                  <a
+                  <Link
                     href="/services"
                     className="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/80 hover:text-white transition-all duration-200 group"
                   >
@@ -200,9 +201,9 @@ export default async function ContactPage() {
                       <div className="font-medium">View Our Services</div>
                       <div className="text-sm text-white/60">Learn about what we offer</div>
                     </div>
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     href="/portfolio"
                     className="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/80 hover:text-white transition-all duration-200 group"
                   >
@@ -213,7 +214,7 @@ export default async function ContactPage() {
                       <div className="font-medium">View Our Portfolio</div>
                       <div className="text-sm text-white/60">See our previous work</div>
                     </div>
-                  </a>
+                  </Link>
 
                   <a
                     href="https://calendly.com/clickboost" // Replace with actual scheduling link

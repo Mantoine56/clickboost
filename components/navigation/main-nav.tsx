@@ -76,7 +76,6 @@ export function MainNavigation({ className }: MainNavigationProps) {
   const handleItemClick = (label: string) => {
     // Close mobile menu when item is clicked
     setIsMobileMenuOpen(false)
-    console.log(`Navigating to: ${label}`)
   }
 
   const toggleMobileMenu = () => {
@@ -118,6 +117,8 @@ export function MainNavigation({ className }: MainNavigationProps) {
         <motion.button
           onClick={toggleMobileMenu}
           className="p-3 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMobileMenuOpen}
           whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
           whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
         >
@@ -173,6 +174,8 @@ export function MainNavigation({ className }: MainNavigationProps) {
                 exit={prefersReducedMotion ? undefined : { opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="fixed top-20 left-4 right-4 z-50 p-4 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 shadow-2xl"
+                role="dialog"
+                aria-modal="true"
               >
                 <nav className="space-y-2">
                   {navigationItems.map((item, index) => {

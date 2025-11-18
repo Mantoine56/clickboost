@@ -5,6 +5,7 @@ import "./globals.css";
 import { TwentyFirstToolbar } from "@21st-extension/toolbar-next";
 import { ReactPlugin } from "@21st-extension/react";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react";
 // Global navigation bar
 import { MainNavigation } from "@/components/navigation/main-nav";
 import { SiteFooter } from "@/components/navigation/site-footer";
@@ -40,20 +41,13 @@ export const metadata: Metadata = {
     title: "ClickBoost - Professional Web & App Development Agency",
     description: "Transform your ideas into powerful digital solutions. ClickBoost specializes in custom web development, mobile apps, and UI/UX design.",
     siteName: "ClickBoost",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "ClickBoost - Web & App Development Agency",
-      },
-    ],
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "ClickBoost - Professional Web & App Development Agency",
     description: "Transform your ideas into powerful digital solutions. Custom web development, mobile apps, and UI/UX design.",
-    images: ["/twitter-image.svg"],
+    images: ["/twitter-image"],
     creator: "@clickboost",
   },
   robots: {
@@ -83,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded-md focus:bg-black/80 focus:text-white">Skip to content</a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -95,16 +90,19 @@ export default function RootLayout({
           </div>
 
           <div className="flex min-h-screen flex-col">
-            <main className="flex-1">{children}</main>
+            <main id="main" className="flex-1">{children}</main>
             <SiteFooter />
           </div>
         </ThemeProvider>
-        {/* 21st.dev Toolbar for AI-powered editing - only renders in development mode */}
-        <TwentyFirstToolbar
-          config={{
-            plugins: [ReactPlugin],
-          }}
-        />
+        {/* 21st.dev Toolbar only in development */}
+        {process.env.NODE_ENV !== 'production' && (
+          <TwentyFirstToolbar
+            config={{
+              plugins: [ReactPlugin],
+            }}
+          />
+        )}
+        <Analytics />
       </body>
     </html>
   );

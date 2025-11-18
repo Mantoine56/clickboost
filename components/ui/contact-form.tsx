@@ -143,9 +143,13 @@ export function ContactForm({ onSubmit, className }: ContactFormProps) {
       if (onSubmit) {
         result = await onSubmit(formData)
       } else {
-        // Default submission (you can replace this with your API call)
-        await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate API call
-        result = { success: true, message: 'Thank you! We\'ll get back to you soon.' }
+        // Default: submit to /api/contact
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, honeypot: '' })
+        })
+        result = await response.json()
       }
 
       if (result.success) {

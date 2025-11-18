@@ -83,19 +83,19 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
+                  <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     Start Your Project
                     <ArrowRight className="h-5 w-5" />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/portfolio"
                     className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 backdrop-blur-sm border border-white/20"
                   >
                     View Examples
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -211,18 +211,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 Get a free consultation and detailed project proposal.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Start Your Project
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/services"
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 backdrop-blur-sm border border-white/20"
                 >
                   View All Services
-                </a>
+                </Link>
               </div>
             </div>
           </div>

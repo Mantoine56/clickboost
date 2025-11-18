@@ -81,13 +81,13 @@ export default async function PortfolioCaseStudyPage({ params }: PortfolioPagePr
         {/* Navigation */}
         <section className="pt-32 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <a
+            <Link
               href="/portfolio"
               className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Portfolio
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -154,17 +154,17 @@ export default async function PortfolioCaseStudyPage({ params }: PortfolioPagePr
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                      View Live Project
-                    </a>
-                  )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    <ExternalLink className="h-5 w-5" />
+                    View Live Project
+                  </a>
+                )}
                   
                   {project.githubUrl && (
                     <a
@@ -296,18 +296,18 @@ export default async function PortfolioCaseStudyPage({ params }: PortfolioPagePr
                 Get started with a free consultation and see how we can help bring your vision to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Start Your Project
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/portfolio"
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 backdrop-blur-sm border border-white/20"
                 >
                   View More Projects
-                </a>
+                </Link>
               </div>
             </div>
           </div>

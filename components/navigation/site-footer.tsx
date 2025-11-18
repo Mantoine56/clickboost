@@ -101,7 +101,7 @@ export async function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Focus areas</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Trusted by</h3>
             <ul className="mt-4 space-y-4 text-sm text-white/70">
               {focusLinks.map((area) => (
                 <li key={area.label}>

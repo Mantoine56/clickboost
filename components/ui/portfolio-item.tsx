@@ -182,6 +182,7 @@ export function PortfolioItem({
           >
             <Link href={caseStudyUrl}>
               <motion.button
+                aria-label="View case study"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-colors"
@@ -193,6 +194,7 @@ export function PortfolioItem({
             {liveUrl && (
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                 <motion.button
+                  aria-label="Open live project"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-colors"
@@ -205,6 +207,7 @@ export function PortfolioItem({
             {githubUrl && (
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <motion.button
+                  aria-label="View source code on GitHub"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-colors"

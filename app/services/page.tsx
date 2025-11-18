@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import { ServiceCard, ServiceGrid } from "@/components/ui/service-card"
 import { getServices } from "@/lib/content"
 
@@ -73,18 +74,18 @@ export default async function ServicesPage() {
                 Get a free consultation and project estimate.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Get Free Consultation
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/portfolio"
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 backdrop-blur-sm border border-white/20"
                 >
                   View Our Work
-                </a>
+                </Link>
               </div>
             </div>
           </div>

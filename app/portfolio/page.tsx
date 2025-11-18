@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { Metadata } from "next"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { PortfolioItem, PortfolioGrid, CategoryFilter } from "@/components/ui/portfolio-item"
 import { getPortfolioProjects } from "@/lib/content"
@@ -182,18 +182,18 @@ export default function PortfolioPage() {
                 Get started with a free consultation and see how we can help bring your vision to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/contact"
                   className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Start Your Project
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/services"
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all duration-200 hover:scale-105 backdrop-blur-sm border border-white/20"
                 >
                   View Our Services
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
