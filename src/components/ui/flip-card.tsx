@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import { ArrowRight, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface FlipCardProps {
   name: string;
@@ -14,6 +14,34 @@ export interface FlipCardProps {
   gradient: string;
   accentColor: string;
   href: string;
+}
+
+const CODE_LINES_COUNT = 5;
+
+function hashToUnitInterval(value: string): number {
+  let hash = 0;
+
+  for (let i = 0; i < value.length; i += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(i);
+    hash |= 0;
+  }
+
+  return ((hash >>> 0) % 10_000) / 10_000;
+}
+
+function getCodeLineStyles(seed: string) {
+  return Array.from({ length: CODE_LINES_COUNT }, (_, index) => {
+    const width = 40 + hashToUnitInterval(`${seed}-width-${index}`) * 30;
+    const marginLeft =
+      hashToUnitInterval(`${seed}-offset-${index}`) * 20;
+
+    return {
+      width: `${width.toFixed(4)}%`,
+      animationDelay: `${index * 0.25}s`,
+      marginLeft: `${marginLeft.toFixed(4)}%`,
+      opacity: 0,
+    };
+  });
 }
 
 export function FlipCard({
@@ -27,13 +55,12 @@ export function FlipCard({
   href,
 }: FlipCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const isTouchDevice = useMemo(() => {
+    if (typeof window === 'undefined') return false;
 
-  useEffect(() => {
-    setIsTouchDevice(
-      'ontouchstart' in window || navigator.maxTouchPoints > 0
-    );
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   }, []);
+  const codeLineStyles = useMemo(() => getCodeLineStyles(name), [name]);
 
   const handleClick = () => {
     if (isTouchDevice) {
@@ -103,16 +130,11 @@ export function FlipCard({
           >
             {/* Animated code lines behind icon */}
             <div className="absolute inset-x-0 top-0 flex h-40 flex-col items-center justify-center gap-2 overflow-hidden opacity-30">
-              {[...Array(5)].map((_, i) => (
+              {codeLineStyles.map((lineStyle, i) => (
                 <div
                   key={i}
                   className="h-2 rounded-sm bg-white/30 animate-[slideIn_2s_ease-in-out_infinite]"
-                  style={{
-                    width: `${40 + Math.random() * 30}%`,
-                    animationDelay: `${i * 0.25}s`,
-                    marginLeft: `${Math.random() * 20}%`,
-                    opacity: 0,
-                  }}
+                  style={lineStyle}
                 />
               ))}
             </div>
