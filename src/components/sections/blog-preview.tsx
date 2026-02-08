@@ -2,40 +2,21 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const posts = [
-  {
-    title: "Why Your Business Needs AI Implementation in 2025",
-    excerpt:
-      "From automated customer service to predictive analytics, AI is no longer optional. Here's how to get started with practical AI implementation.",
-    category: "AI",
-    readTime: "6 min read",
-    date: "Jan 2025",
-    gradient: "from-brand-500/20 to-purple-500/20",
-  },
-  {
-    title: "The Complete Guide to Technical SEO for Modern Websites",
-    excerpt:
-      "Core Web Vitals, structured data, and crawl optimization — the technical SEO checklist that actually moves the needle.",
-    category: "SEO",
-    readTime: "8 min read",
-    date: "Dec 2024",
-    gradient: "from-emerald-500/20 to-teal-500/20",
-  },
-  {
-    title: "Next.js vs WordPress: Choosing the Right Stack in 2025",
-    excerpt:
-      "A practical comparison for business owners. When WordPress makes sense, when Next.js wins, and how to decide for your project.",
-    category: "Web Dev",
-    readTime: "5 min read",
-    date: "Dec 2024",
-    gradient: "from-orange-500/20 to-amber-500/20",
-  },
-];
+import { blogPosts } from "@/lib/blog-data";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+const previewPosts = blogPosts.slice(0, 3);
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString + "T00:00:00");
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+  });
+}
 
 export function BlogPreview() {
   return (
@@ -72,16 +53,16 @@ export function BlogPreview() {
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, i) => (
+          {previewPosts.map((post, i) => (
             <motion.article
-              key={post.title}
+              key={post.slug}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
             >
               <Link
-                href="/blog"
+                href={`/blog/${post.slug}`}
                 className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-elevation-2 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
                 {/* Gradient header */}
@@ -101,7 +82,10 @@ export function BlogPreview() {
                     {post.excerpt}
                   </p>
                   <div className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
-                    <span>{post.date}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3" aria-hidden="true" />
+                      {formatDate(post.publishDate)}
+                    </span>
                     <span aria-hidden="true">&bull;</span>
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" aria-hidden="true" />
