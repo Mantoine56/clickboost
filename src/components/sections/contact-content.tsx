@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const contactInfo = [
   {
@@ -37,6 +39,54 @@ const contactInfo = [
 ];
 
 export function ContactContent() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+    setFeedbackMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      company: String(formData.get("company") ?? ""),
+      service: String(formData.get("service") ?? ""),
+      budget: String(formData.get("budget") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      website: String(formData.get("website") ?? ""),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        setStatus("error");
+        setFeedbackMessage(
+          data.message ?? "Unable to send your message. Please try again."
+        );
+        return;
+      }
+
+      form.reset();
+      setStatus("success");
+      setFeedbackMessage(
+        data.message ?? "Thanks. Your message has been sent successfully."
+      );
+    } catch {
+      setStatus("error");
+      setFeedbackMessage("Network error. Please try again in a moment.");
+    }
+  }
+
   return (
     <>
       {/* Hero — flow-field background with indigo-500 particles */}
@@ -82,8 +132,18 @@ export function ContactContent() {
             >
               <form
                 className="space-y-6"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={handleSubmit}
               >
+                {/* Honeypot field for bot filtering */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label
@@ -223,10 +283,23 @@ export function ContactContent() {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={status === "submitting"}
                   className="w-full bg-brand-500 text-white hover:bg-brand-600 glow sm:w-auto sm:px-12"
                 >
-                  Send Message
+                  {status === "submitting" ? "Sending..." : "Send Message"}
                 </Button>
+
+                {status !== "idle" && (
+                  <p
+                    className={`text-sm ${
+                      status === "success" ? "text-emerald-500" : "text-red-500"
+                    }`}
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {feedbackMessage}
+                  </p>
+                )}
               </form>
             </motion.div>
 

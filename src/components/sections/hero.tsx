@@ -4,7 +4,7 @@ import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -142,24 +142,34 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* Scroll indicator — fades in after delay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown
-              className="h-6 w-6 text-muted-foreground/50"
-              aria-hidden="true"
-            />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator — positioned relative to the full-screen section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
+        >
+          {/* Mouse-shaped outline with animated scroll dot */}
+          <div className="flex h-9 w-5.5 items-start justify-center rounded-full border-2 border-muted-foreground/30 pt-1.5">
+            <motion.div
+              animate={{ y: [0, 8, 0], opacity: [1, 0.3, 1] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              className="h-1.5 w-1.5 rounded-full bg-brand-400"
+            />
+          </div>
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/40">
+            Scroll
+          </span>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
