@@ -119,6 +119,7 @@ Canada + US — programmatic city pages for 30+ metro areas
 | Eventzy | App Development | Full-featured event management platform with auth and booking |
 | CashMe | App Development | Business cash income tracking application |
 | DollarTracker | Finance App | Personal finance management with daily budget tracking |
+| DarkSec | AI Platform | AI-powered executive tech news pipeline with automated ingestion, enrichment, deduplication, and personalized feeds using LangGraph + FastAPI + Supabase |
 | ShabebCatan | Fun/Gaming | Catan board game statistics tracker with analytics
 
 ## Testimonials (Draft — based on real project outcomes)
