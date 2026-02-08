@@ -1,14 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function CTASection() {
+function CTABackgroundFallback() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
-      {/* Gradient background */}
+    <>
       <div
         className="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-700 to-purple-800"
         aria-hidden="true"
@@ -17,17 +17,23 @@ export function CTASection() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-400/20 via-transparent to-transparent"
         aria-hidden="true"
       />
+    </>
+  );
+}
 
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-        aria-hidden="true"
-      />
+const ShaderBg = dynamic(
+  () =>
+    import("@/components/ui/shader-background").then((mod) => ({
+      default: mod.ShaderBackground,
+    })),
+  { ssr: false, loading: () => <CTABackgroundFallback /> }
+);
+
+export function CTASection() {
+  return (
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      {/* Animated shader background */}
+      <ShaderBg className="absolute inset-0 h-full w-full" />
 
       <div className="container-tight relative z-10 text-center">
         <motion.h2

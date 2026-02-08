@@ -2,20 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Lightbulb,
-  Pencil,
-  Rocket,
-  Settings,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Timeline } from "@/components/ui/timeline";
 import { getServiceBySlug } from "@/lib/services-data";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
-
-const processIcons = [Lightbulb, Pencil, Settings, Rocket];
 
 export function ServicePageContent({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
@@ -142,46 +134,14 @@ export function ServicePageContent({ slug }: { slug: string }) {
             </p>
           </div>
 
-          <div className="mt-16 space-y-12">
-            {service.process.map((step, i) => {
-              const Icon = processIcons[i] || Rocket;
-              return (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, ease }}
-                  className="flex gap-6"
-                >
-                  <div className="flex flex-col items-center">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-500/10">
-                      <Icon
-                        className="h-6 w-6 text-brand-500"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    {i < service.process.length - 1 && (
-                      <div
-                        className="mt-3 h-full w-px bg-border"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
-                  <div className="pb-8">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-brand-500">
-                      Step {step.step}
-                    </span>
-                    <h3 className="mt-1 text-lg font-semibold text-foreground">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="mt-16">
+            <Timeline
+              items={service.process.map((s) => ({
+                step: String(s.step).padStart(2, "0"),
+                title: s.title,
+                description: s.description,
+              }))}
+            />
           </div>
         </div>
       </section>

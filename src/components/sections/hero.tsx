@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
@@ -8,115 +9,28 @@ import { Button } from "@/components/ui/button";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
-function GradientMesh() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const animationRef = useRef<number>(0);
-
-  const draw = useCallback(
-    (ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
-      ctx.clearRect(0, 0, width, height);
-
-      ctx.fillStyle = "oklch(0.08 0.01 270)";
-      ctx.fillRect(0, 0, width, height);
-
-      const orbs = [
-        {
-          x: width * 0.3 + Math.sin(time * 0.0003) * width * 0.1,
-          y: height * 0.4 + Math.cos(time * 0.0004) * height * 0.1,
-          r: width * 0.4,
-          color: "rgba(120, 80, 220, 0.15)",
-        },
-        {
-          x: width * 0.7 + Math.cos(time * 0.0005) * width * 0.08,
-          y: height * 0.6 + Math.sin(time * 0.0003) * height * 0.12,
-          r: width * 0.35,
-          color: "rgba(80, 60, 200, 0.12)",
-        },
-        {
-          x: width * 0.5 + Math.sin(time * 0.0004) * width * 0.15,
-          y: height * 0.3 + Math.cos(time * 0.0006) * height * 0.08,
-          r: width * 0.3,
-          color: "rgba(160, 100, 240, 0.08)",
-        },
-      ];
-
-      for (const orb of orbs) {
-        const gradient = ctx.createRadialGradient(
-          orb.x, orb.y, 0, orb.x, orb.y, orb.r
-        );
-        gradient.addColorStop(0, orb.color);
-        gradient.addColorStop(1, "transparent");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-      }
-
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
-      ctx.lineWidth = 0.5;
-      const gridSize = 80;
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-    },
-    []
-  );
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    function resize() {
-      if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio, 2);
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx!.scale(dpr, dpr);
-    }
-
-    resize();
-    window.addEventListener("resize", resize);
-
-    if (prefersReducedMotion) {
-      const rect = canvas.getBoundingClientRect();
-      draw(ctx, rect.width, rect.height, 0);
-      return () => window.removeEventListener("resize", resize);
-    }
-
-    function animate(time: number) {
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      draw(ctx!, rect.width, rect.height, time);
-      animationRef.current = requestAnimationFrame(animate);
-    }
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animationRef.current);
-    };
-  }, [draw, prefersReducedMotion]);
-
+function HeroBackgroundFallback() {
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 h-full w-full"
+    <div
+      className="absolute inset-0 bg-background"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 30% 40%, rgba(120, 80, 220, 0.15), transparent 50%),
+          radial-gradient(circle at 70% 60%, rgba(80, 60, 200, 0.12), transparent 50%)
+        `,
+      }}
       aria-hidden="true"
     />
   );
 }
+
+const ShaderBg = dynamic(
+  () =>
+    import("@/components/ui/shader-background").then((mod) => ({
+      default: mod.ShaderBackground,
+    })),
+  { ssr: false, loading: () => <HeroBackgroundFallback /> }
+);
 
 function MagneticButton({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -150,7 +64,7 @@ function MagneticButton({ children }: { children: React.ReactNode }) {
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
-      <GradientMesh />
+      <ShaderBg className="absolute inset-0 h-full w-full" />
 
       <div
         className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"

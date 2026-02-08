@@ -18,6 +18,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Timeline } from "@/components/ui/timeline";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -228,27 +229,8 @@ export function AboutContent() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 sm:grid-cols-2">
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease }}
-                className="rounded-xl border border-border bg-card p-6 shadow-elevation-1"
-              >
-                <span className="text-3xl font-bold text-brand-500/20">
-                  {step.step}
-                </span>
-                <h3 className="mt-2 text-lg font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="mt-16">
+            <Timeline items={processSteps} />
           </div>
         </div>
       </section>
