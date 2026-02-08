@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe, Search, Bot, Smartphone } from "lucide-react";
-import { FlipCard } from "@/components/ui/flip-card";
+import { ServiceCard } from "@/components/ui/service-card";
 
 const services = [
   {
@@ -13,7 +13,6 @@ const services = [
       "We build modern, fast, accessible websites and web applications using the latest technologies. From marketing sites to complex web apps.",
     href: "/services/web-development",
     gradient: "from-blue-600 to-cyan-600",
-    accentColor: "#2563eb",
     features: [
       "Custom Next.js & React",
       "Mobile-First Design",
@@ -29,7 +28,6 @@ const services = [
       "Technical SEO, content strategy, and digital marketing to drive sustainable organic growth and measurable business outcomes.",
     href: "/services/seo",
     gradient: "from-emerald-600 to-green-600",
-    accentColor: "#059669",
     features: [
       "Technical SEO Audits",
       "Local SEO & Citations",
@@ -45,7 +43,6 @@ const services = [
       "Custom AI agents, workflow automation, and intelligent tools that solve real business problems with measurable ROI.",
     href: "/services/ai-implementation",
     gradient: "from-brand-600 to-purple-600",
-    accentColor: "#7c3aed",
     features: [
       "Custom AI Agents",
       "Workflow Automation",
@@ -61,7 +58,6 @@ const services = [
       "Mobile applications, SaaS platforms, and custom business tools built with robust architecture and exceptional UX.",
     href: "/services/app-development",
     gradient: "from-orange-600 to-rose-600",
-    accentColor: "#ea580c",
     features: [
       "Cross-Platform Apps",
       "SaaS Platforms",
@@ -138,15 +134,13 @@ export function ServicesPreview() {
           className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {services.map((service) => (
-            <motion.div key={service.name} variants={cardVariants}>
-              <FlipCard
+            <motion.div key={service.name} variants={cardVariants} className="h-full">
+              <ServiceCard
                 icon={service.icon}
                 name={service.name}
-                tagline={service.tagline}
                 description={service.description}
                 features={service.features}
                 gradient={service.gradient}
-                accentColor={service.accentColor}
                 href={service.href}
               />
             </motion.div>

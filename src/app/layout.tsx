@@ -53,12 +53,6 @@ export const metadata: Metadata = {
     description:
       "Modern web development, SEO, AI implementation, and app development agency.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ClickBoost — We Build What Others Can't",
-    description:
-      "Modern web development, SEO, AI implementation, and app development agency.",
-  },
   robots: {
     index: true,
     follow: true,

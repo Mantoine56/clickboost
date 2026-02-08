@@ -290,22 +290,10 @@ export function CaseStudyContent({ slug }: { slug: string }) {
                 &ldquo;{project.testimonial.quote}&rdquo;
               </p>
 
-              <footer className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-                {/* Avatar placeholder */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-sm font-bold text-brand-500">
-                  {project.testimonial.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
-                <div>
-                  <cite className="text-sm font-semibold not-italic text-foreground">
-                    {project.testimonial.name}
-                  </cite>
-                  <p className="text-sm text-muted-foreground">
-                    {project.testimonial.title}
-                  </p>
-                </div>
+              <footer className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-6">
+                <p className="text-sm text-muted-foreground">
+                  {project.testimonial.title}
+                </p>
                 <div className="ml-auto flex gap-0.5" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star

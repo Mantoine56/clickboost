@@ -400,23 +400,10 @@ export function IndustryPageContent({ slug }: { slug: string }) {
               </p>
             </blockquote>
 
-            <div className="mt-8 flex flex-col items-center gap-3">
-              {/* Avatar placeholder */}
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-sm font-bold text-brand-500">
-                {industry.testimonial.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
-              </div>
-              <div>
-                <cite className="text-base font-semibold not-italic text-foreground">
-                  {industry.testimonial.name}
-                </cite>
-                <p className="text-sm text-muted-foreground">
-                  {industry.testimonial.title},{" "}
-                  {industry.testimonial.company}
-                </p>
-              </div>
+            <div className="mt-8">
+              <p className="text-sm text-muted-foreground">
+                {industry.testimonial.title}, {industry.testimonial.company}
+              </p>
             </div>
           </motion.div>
         </div>

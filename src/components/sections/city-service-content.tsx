@@ -556,15 +556,15 @@ export function CityServiceContent({
       {/* ============================================================ */}
       <section
         ref={statsRef}
-        className="relative overflow-hidden py-16 sm:py-24"
+        className="relative overflow-hidden py-24 sm:py-32 bg-background"
       >
-        {/* Gradient background */}
+        {/* Background Effects */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r ${gradient}`}
+          className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent"
+          className="absolute left-0 top-0 -z-10 h-full w-full bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(124,58,237,0.15),transparent)]"
           aria-hidden="true"
         />
 
@@ -574,16 +574,16 @@ export function CityServiceContent({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.4 }}
-            className="mx-auto mb-12 max-w-xl text-center"
+            className="mx-auto mb-16 max-w-xl text-center"
           >
             <TrendingUp
-              className="mx-auto h-8 w-8 text-white/80"
+              className="mx-auto h-8 w-8 text-brand-500 mb-4"
               aria-hidden="true"
             />
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Proven Results
             </h2>
-            <p className="mt-3 text-white/70">
+            <p className="mt-3 text-muted-foreground">
               Real outcomes we deliver for {service.name.toLowerCase()} clients.
             </p>
           </motion.div>
@@ -600,22 +600,31 @@ export function CityServiceContent({
                   delay: i * 0.1,
                   ease,
                 }}
-                className="text-center"
+                className="group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-card/30 p-8 text-center backdrop-blur-sm transition-all duration-300 hover:border-brand-500/30 hover:bg-card/50 hover:shadow-glow"
               >
-                <stat.icon
-                  className="mx-auto mb-3 h-6 w-6 text-white/70"
-                  aria-hidden="true"
-                />
-                <div className="text-4xl font-bold text-white sm:text-5xl">
-                  <AnimatedCounter
-                    target={stat.value}
-                    suffix={stat.suffix}
-                    inView={statsInView}
-                  />
+                {/* Icon Background Glow */}
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/10 text-brand-500 shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:bg-brand-500/20">
+                  <stat.icon className="h-7 w-7" aria-hidden="true" />
                 </div>
-                <p className="mt-2 text-sm font-medium text-white/70">
+
+                <div className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                  <span className="text-gradient">
+                    <AnimatedCounter
+                      target={stat.value}
+                      suffix={stat.suffix}
+                      inView={statsInView}
+                    />
+                  </span>
+                </div>
+                <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors">
                   {stat.label}
                 </p>
+
+                {/* Card Hover Gradient */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
               </motion.div>
             ))}
           </div>

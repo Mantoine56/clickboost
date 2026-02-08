@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ProjectCard } from "@/components/ui/project-card";
 
 const projects = [
   {
@@ -76,46 +77,16 @@ export function PortfolioPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease }}
+              className="h-full"
             >
-              <Link
+              <ProjectCard
+                title={project.title}
+                category={project.category}
+                description={project.description}
+                gradient={project.gradient}
+                tags={project.tags}
                 href="/portfolio"
-                className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-elevation-2 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-              >
-                {/* Gradient placeholder for project image */}
-                <div
-                  className={`relative flex h-48 items-end bg-gradient-to-br ${project.gradient} p-6`}
-                >
-                  <div className="absolute inset-0 bg-black/20" />
-                  <div className="relative">
-                    <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                      {project.category}
-                    </span>
-                  </div>
-                  <ExternalLink
-                    className="absolute right-4 top-4 h-5 w-5 text-white/50 transition-all group-hover:text-white"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-brand-500/10 px-2.5 py-0.5 text-xs font-medium text-brand-500"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+              />
             </motion.div>
           ))}
         </div>

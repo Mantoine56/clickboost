@@ -93,7 +93,6 @@ const statsData = [
 const testimonial = {
   quote:
     "ClickBoost didn't just build us a website — they built us a growth engine. The combination of stunning design, technical SEO, and AI-powered lead capture tripled our monthly inquiries within the first quarter.",
-  name: "Marcus Chen",
   title: "Owner, GreenLeaf Dispensary",
 };
 
@@ -284,15 +283,15 @@ export function CityPageContent({ citySlug }: { citySlug: string }) {
       {/* ============================================================ */}
       <section
         ref={statsRef}
-        className="relative overflow-hidden py-16 sm:py-24"
+        className="relative overflow-hidden py-24 sm:py-32 bg-background"
       >
-        {/* Gradient background */}
+        {/* Background Effects */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900"
+          className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-500/20 via-transparent to-transparent"
+          className="absolute left-0 top-0 -z-10 h-full w-full bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(124,58,237,0.15),transparent)]"
           aria-hidden="true"
         />
 
@@ -302,12 +301,12 @@ export function CityPageContent({ citySlug }: { citySlug: string }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.4 }}
-            className="mx-auto mb-12 max-w-xl text-center"
+            className="mx-auto mb-16 max-w-xl text-center"
           >
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Results That Speak
             </h2>
-            <p className="mt-3 text-brand-200/80">
+            <p className="mt-3 text-muted-foreground">
               Proven outcomes for businesses across {city.name} and beyond.
             </p>
           </motion.div>
@@ -324,22 +323,31 @@ export function CityPageContent({ citySlug }: { citySlug: string }) {
                   delay: i * 0.1,
                   ease,
                 }}
-                className="text-center"
+                className="group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-border/50 bg-card/30 p-8 text-center backdrop-blur-sm transition-all duration-300 hover:border-brand-500/30 hover:bg-card/50 hover:shadow-glow"
               >
-                <stat.icon
-                  className="mx-auto mb-3 h-6 w-6 text-brand-300"
-                  aria-hidden="true"
-                />
-                <div className="text-4xl font-bold text-white sm:text-5xl">
-                  <AnimatedCounter
-                    target={stat.value}
-                    suffix={stat.suffix}
-                    inView={statsInView}
-                  />
+                {/* Icon Background Glow */}
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/10 text-brand-500 shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:bg-brand-500/20">
+                  <stat.icon className="h-7 w-7" aria-hidden="true" />
                 </div>
-                <p className="mt-2 text-sm font-medium text-brand-200">
+
+                <div className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                  <span className="text-gradient">
+                    <AnimatedCounter
+                      target={stat.value}
+                      suffix={stat.suffix}
+                      inView={statsInView}
+                    />
+                  </span>
+                </div>
+                <p className="mt-2 text-sm font-medium text-muted-foreground uppercase tracking-wider group-hover:text-foreground transition-colors">
                   {stat.label}
                 </p>
+
+                {/* Card Hover Gradient */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  aria-hidden="true"
+                />
               </motion.div>
             ))}
           </div>
@@ -458,22 +466,10 @@ export function CityPageContent({ citySlug }: { citySlug: string }) {
               </p>
             </blockquote>
 
-            <div className="mt-8 flex flex-col items-center gap-3">
-              {/* Avatar placeholder */}
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-sm font-bold text-brand-500">
-                {testimonial.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
-              </div>
-              <div>
-                <cite className="text-base font-semibold not-italic text-foreground">
-                  {testimonial.name}
-                </cite>
-                <p className="text-sm text-muted-foreground">
-                  {testimonial.title}
-                </p>
-              </div>
+            <div className="mt-8">
+              <p className="text-sm text-muted-foreground">
+                {testimonial.title}
+              </p>
             </div>
           </motion.div>
         </div>

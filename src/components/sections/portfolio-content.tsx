@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { projects, filterCategories } from "@/lib/portfolio-data";
+import { ProjectCard } from "@/components/ui/project-card";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -97,65 +98,16 @@ export function PortfolioContent() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35, ease }}
+                  className="h-full"
                 >
-                  <Link
+                  <ProjectCard
+                    title={project.title}
+                    category={project.category}
+                    description={project.tagline}
+                    gradient={project.gradient}
+                    tags={project.techStack}
                     href={`/portfolio/${project.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-elevation-2 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-                    aria-label={`View case study: ${project.title}`}
-                  >
-                    {/* Gradient header */}
-                    <div
-                      className={`relative flex h-48 items-end bg-gradient-to-br ${project.gradient} p-6`}
-                    >
-                      <div
-                        className="absolute inset-0 bg-black/20"
-                        aria-hidden="true"
-                      />
-
-                      {/* Category badge */}
-                      <div className="relative">
-                        <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                          {project.category}
-                        </span>
-                      </div>
-
-                      {/* Hover overlay */}
-                      <div
-                        className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/40"
-                        aria-hidden="true"
-                      >
-                        <span className="flex items-center gap-2 text-sm font-medium text-white opacity-0 transition-all duration-300 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
-                          View Case Study
-                          <ArrowRight className="h-4 w-4" />
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="text-lg font-semibold text-foreground">
-                        {project.title}
-                      </h3>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                        {project.tagline}
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {project.techStack.slice(0, 3).map((tech) => (
-                          <span
-                            key={tech}
-                            className="rounded-full bg-brand-500/10 px-2.5 py-0.5 text-xs font-medium text-brand-500"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.techStack.length > 3 && (
-                          <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                            +{project.techStack.length - 3}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
+                  />
                 </motion.div>
               ))}
             </AnimatePresence>

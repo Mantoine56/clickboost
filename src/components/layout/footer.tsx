@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { NewsletterForm } from "./newsletter-form";
 
 const serviceLinks = [
@@ -51,11 +51,18 @@ export function Footer() {
                 <span>Canada &amp; United States</span>
               </div>
               <a
-                href="mailto:hello@clickboost.ca"
+                href="mailto:antoine@clickboost.ca"
                 className="flex items-center gap-2 transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>hello@clickboost.ca</span>
+                <span>antoine@clickboost.ca</span>
+              </a>
+              <a
+                href="tel:+16138944632"
+                className="flex items-center gap-2 transition-colors hover:text-foreground"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>613-894-4632</span>
               </a>
             </div>
           </div>

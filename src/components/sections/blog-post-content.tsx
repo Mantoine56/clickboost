@@ -8,8 +8,6 @@ import {
   Calendar,
   Clock,
   User,
-  Linkedin,
-  Twitter,
   LinkIcon,
   CheckCircle2,
 } from "lucide-react";
@@ -32,7 +30,7 @@ function formatDate(dateString: string): string {
   });
 }
 
-function ShareButtons({ title, slug }: { title: string; slug: string }) {
+function ShareButtons({ slug }: { slug: string }) {
   const [copied, setCopied] = useState(false);
   const url = `https://clickboost.ca/blog/${slug}`;
 
@@ -45,25 +43,9 @@ function ShareButtons({ title, slug }: { title: string; slug: string }) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm font-medium text-muted-foreground">Share:</span>
-      <a
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:text-brand-500 hover:border-brand-500/30"
-        aria-label="Share on LinkedIn"
-      >
-        <Linkedin className="h-4 w-4" />
-      </a>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:text-brand-500 hover:border-brand-500/30"
-        aria-label="Share on X"
-      >
-        <Twitter className="h-4 w-4" />
-      </a>
+      <span className="text-sm font-medium text-muted-foreground">
+        Article link:
+      </span>
       <button
         onClick={copyLink}
         className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:text-brand-500 hover:border-brand-500/30"
@@ -372,7 +354,7 @@ export function BlogPostContent({ slug }: { slug: string }) {
               {/* Share + Author */}
               <div className="mt-12 border-t border-border pt-8">
                 <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                  <ShareButtons title={post.title} slug={post.slug} />
+                  <ShareButtons slug={post.slug} />
 
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/10">

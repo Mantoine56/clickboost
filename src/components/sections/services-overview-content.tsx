@@ -2,22 +2,9 @@
 
 import { motion } from "framer-motion";
 import { servicesData } from "@/lib/services-data";
-import { FlipCard } from "@/components/ui/flip-card";
+import { ServiceCard } from "@/components/ui/service-card";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
-
-function getAccentColor(gradient: string): string {
-  const colorMap: Record<string, string> = {
-    "from-blue-600": "#2563eb",
-    "from-emerald-600": "#059669",
-    "from-brand-600": "#7c3aed",
-    "from-orange-600": "#ea580c",
-    "from-sky-600": "#0284c7",
-    "from-lime-600": "#65a30d",
-  };
-  const match = gradient.match(/from-[\w-]+/)?.[0];
-  return match ? (colorMap[match] ?? "#7c3aed") : "#7c3aed";
-}
 
 export function ServicesOverviewContent() {
   return (
@@ -70,14 +57,13 @@ export function ServicesOverviewContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.08, ease }}
+                className="h-full"
               >
-                <FlipCard
+                <ServiceCard
                   icon={service.icon}
                   name={service.name}
-                  tagline={service.tagline}
                   description={service.description}
                   gradient={service.gradient}
-                  accentColor={getAccentColor(service.gradient)}
                   features={service.features.slice(0, 4).map((f) => f.title)}
                   href={`/services/${service.slug}`}
                 />

@@ -16,6 +16,8 @@ export function getOrganizationSchema() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
+      email: "antoine@clickboost.ca",
+      telephone: "+1-613-894-4632",
       availableLanguage: ["English", "French"],
     },
     service: [
@@ -56,6 +58,8 @@ export function getLocalBusinessSchema() {
     description:
       "Web development, SEO, AI implementation, and app development agency.",
     priceRange: "$$",
+    email: "antoine@clickboost.ca",
+    telephone: "+1-613-894-4632",
     areaServed: [
       { "@type": "Country", name: "Canada" },
       { "@type": "Country", name: "United States" },

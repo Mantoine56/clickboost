@@ -12,14 +12,14 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@clickboost.ca",
-    href: "mailto:hello@clickboost.ca",
+    value: "antoine@clickboost.ca",
+    href: "mailto:antoine@clickboost.ca",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "(613) 555-0199",
-    href: "tel:+16135550199",
+    value: "613-894-4632",
+    href: "tel:+16138944632",
   },
   {
     icon: MapPin,
@@ -283,17 +283,21 @@ export function ContactContent() {
 
                 <div className="mt-8 border-t border-border pt-6">
                   <h3 className="text-sm font-semibold text-foreground">
-                    Follow Us
+                    Prefer Direct Contact?
                   </h3>
-                  <div className="mt-3 flex gap-4">
-                    {["LinkedIn", "X", "GitHub"].map((platform) => (
-                      <span
-                        key={platform}
-                        className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-brand-500/30"
-                      >
-                        {platform}
-                      </span>
-                    ))}
+                  <div className="mt-3 space-y-2 text-sm">
+                    <a
+                      href="mailto:antoine@clickboost.ca"
+                      className="block font-medium text-foreground transition-colors hover:text-brand-500"
+                    >
+                      antoine@clickboost.ca
+                    </a>
+                    <a
+                      href="tel:+16138944632"
+                      className="block font-medium text-foreground transition-colors hover:text-brand-500"
+                    >
+                      613-894-4632
+                    </a>
                   </div>
                 </div>
               </div>
