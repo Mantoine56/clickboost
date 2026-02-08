@@ -3,6 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { JsonLd } from "@/components/json-ld";
+import {
+  getOrganizationSchema,
+  getLocalBusinessSchema,
+} from "@/lib/structured-data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -70,6 +75,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <JsonLd data={getOrganizationSchema()} />
+        <JsonLd data={getLocalBusinessSchema()} />
         <ThemeProvider>
           <Header />
           <main id="main-content">{children}</main>

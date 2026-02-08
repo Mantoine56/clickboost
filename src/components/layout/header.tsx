@@ -116,9 +116,9 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="relative z-10 text-xl font-bold tracking-tight"
+          className="relative z-10 text-xl font-bold tracking-tight text-gradient"
         >
-          <span className="text-gradient">Click</span><span className="text-foreground">Boost</span>
+          ClickBoost
         </Link>
 
         {/* Desktop Nav */}
@@ -273,7 +273,7 @@ export function Header() {
             <SheetContent side="right" className="w-80 overflow-y-auto">
               <SheetHeader>
                 <SheetTitle className="text-left font-bold tracking-tight">
-                  <span className="text-gradient">Click</span><span className="text-foreground">Boost</span>
+                  ClickBoost
                 </SheetTitle>
               </SheetHeader>
 

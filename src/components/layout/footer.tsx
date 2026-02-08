@@ -39,7 +39,7 @@ export function Footer() {
               href="/"
               className="inline-block text-xl font-bold tracking-tight"
             >
-              <span className="text-gradient">Click</span><span className="text-foreground">Boost</span>
+              ClickBoost
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               We build what others can&rsquo;t. Modern web development, SEO, AI
