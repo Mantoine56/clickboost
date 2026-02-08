@@ -127,6 +127,38 @@ export function getArticleSchema(post: {
   };
 }
 
+export function getBlogPostingSchema(post: {
+  title: string;
+  description: string;
+  slug: string;
+  publishDate: string;
+  author: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    author: { "@type": "Organization", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: "ClickBoost",
+      url: "https://clickboost.ca",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://clickboost.ca/logo.png",
+      },
+    },
+    datePublished: post.publishDate,
+    dateModified: post.publishDate,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://clickboost.ca/blog/${post.slug}`,
+    },
+    image: `https://clickboost.ca/blog/${post.slug}/opengraph-image`,
+  };
+}
+
 export function getServiceSchema(service: {
   name: string;
   description: string;

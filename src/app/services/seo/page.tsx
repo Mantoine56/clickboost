@@ -7,6 +7,7 @@ const meta = getServiceMeta("seo")!;
 export const metadata: Metadata = {
   title: meta.name,
   description: meta.description,
+  alternates: { canonical: "/services/seo" },
 };
 
 export default function SEOPage() {

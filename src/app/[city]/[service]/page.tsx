@@ -30,8 +30,9 @@ export async function generateMetadata({
 
   const location = cityData.province || cityData.state;
   return {
-    title: `${serviceData.name} in ${cityData.name}, ${location} | ClickBoost`,
+    title: `${serviceData.name} in ${cityData.name}, ${location}`,
     description: `Professional ${serviceData.name.toLowerCase()} services in ${cityData.name}, ${location}. ${serviceData.description} Book your free strategy session.`,
+    alternates: { canonical: `/${city}/${service}` },
   };
 }
 

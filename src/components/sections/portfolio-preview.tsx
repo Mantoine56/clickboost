@@ -8,6 +8,7 @@ import { ProjectCard } from "@/components/ui/project-card";
 
 const projects = [
   {
+    slug: "syndicate-ai",
     title: "SyndicateAI",
     category: "AI + Complex App",
     description:
@@ -16,6 +17,7 @@ const projects = [
     tags: ["AI/ML", "Real-time Data", "Next.js"],
   },
   {
+    slug: "high-ties",
     title: "High Ties",
     category: "E-commerce + POS",
     description:
@@ -24,6 +26,7 @@ const projects = [
     tags: ["E-commerce", "Custom POS", "Shopify"],
   },
   {
+    slug: "spec-bot",
     title: "Spec-Bot",
     category: "AI Tool",
     description:
@@ -85,7 +88,7 @@ export function PortfolioPreview() {
                 description={project.description}
                 gradient={project.gradient}
                 tags={project.tags}
-                href="/portfolio"
+                href={`/portfolio/${project.slug}`}
               />
             </motion.div>
           ))}

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "ClickBoost is a modern tech studio delivering beautiful websites, cutting-edge AI implementation, SEO, and app development for businesses ready to grow.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

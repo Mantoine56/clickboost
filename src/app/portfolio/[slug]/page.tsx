@@ -26,6 +26,7 @@ export async function generateMetadata({
   return {
     title: `${project.title} — Case Study`,
     description: project.description,
+    alternates: { canonical: `/portfolio/${slug}` },
     openGraph: {
       title: `${project.title} — ClickBoost Case Study`,
       description: project.tagline,

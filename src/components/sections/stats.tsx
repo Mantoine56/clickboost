@@ -20,12 +20,16 @@ function AnimatedCounter({
   suffix: string;
   inView: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  // Initialize to target so SSR renders the real value for crawlers
+  const [count, setCount] = useState(target);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || hasAnimated.current) return;
+    hasAnimated.current = true;
 
-    let start = 0;
+    // Reset to 0 and animate up
+    setCount(0);
     const duration = 2000;
     const startTime = performance.now();
 

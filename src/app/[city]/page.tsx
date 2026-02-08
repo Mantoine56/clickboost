@@ -18,8 +18,9 @@ export async function generateMetadata({
 
   const location = cityData.province || cityData.state;
   return {
-    title: `Web Development, SEO & AI Services in ${cityData.name}, ${location} | ClickBoost`,
+    title: `Web Development, SEO & AI Services in ${cityData.name}, ${location}`,
     description: `ClickBoost provides expert web development, SEO, AI implementation, and app development services in ${cityData.name}, ${location}. Book your free strategy session today.`,
+    alternates: { canonical: `/${city}` },
   };
 }
 

@@ -45,12 +45,17 @@ export const metadata: Metadata = {
   authors: [{ name: "ClickBoost" }],
   creator: "ClickBoost",
   metadataBase: new URL("https://clickboost.ca"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://clickboost.ca",
     siteName: "ClickBoost",
-    title: "ClickBoost — We Build What Others Can't",
+    title: {
+      default: "ClickBoost — We Build What Others Can't",
+      template: "%s | ClickBoost",
+    },
     description:
       "Modern web development, SEO, AI implementation, and app development agency.",
   },

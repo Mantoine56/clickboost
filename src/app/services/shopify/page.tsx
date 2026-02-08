@@ -7,6 +7,7 @@ const meta = getServiceMeta("shopify")!;
 export const metadata: Metadata = {
   title: meta.name,
   description: meta.description,
+  alternates: { canonical: "/services/shopify" },
 };
 
 export default function ShopifyPage() {

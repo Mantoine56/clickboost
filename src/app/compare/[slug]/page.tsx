@@ -19,6 +19,7 @@ export async function generateMetadata({
   return {
     title: comparison.title,
     description: comparison.metaDescription,
+    alternates: { canonical: `/compare/${slug}` },
   };
 }
 

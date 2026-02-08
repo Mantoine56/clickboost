@@ -7,6 +7,7 @@ const meta = getServiceMeta("web-development")!;
 export const metadata: Metadata = {
   title: meta.name,
   description: meta.description,
+  alternates: { canonical: "/services/web-development" },
 };
 
 export default function WebDevelopmentPage() {

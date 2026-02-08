@@ -7,6 +7,7 @@ const meta = getServiceMeta("wordpress")!;
 export const metadata: Metadata = {
   title: meta.name,
   description: meta.description,
+  alternates: { canonical: "/services/wordpress" },
 };
 
 export default function WordPressPage() {

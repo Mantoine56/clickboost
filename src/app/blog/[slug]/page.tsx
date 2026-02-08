@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPostBySlug, getAllBlogSlugs } from "@/lib/blog-data";
 import { BlogPostContent } from "@/components/sections/blog-post-content";
+import { JsonLd } from "@/components/json-ld";
+import { getBlogPostingSchema } from "@/lib/structured-data";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -26,6 +28,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -44,5 +47,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  return <BlogPostContent slug={slug} />;
+  return (
+    <>
+      <JsonLd
+        data={getBlogPostingSchema({
+          title: post.title,
+          description: post.excerpt,
+          slug,
+          publishDate: post.publishDate,
+          author: post.author,
+        })}
+      />
+      <BlogPostContent slug={slug} />
+    </>
+  );
 }

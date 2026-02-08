@@ -7,6 +7,7 @@ const meta = getServiceMeta("app-development")!;
 export const metadata: Metadata = {
   title: meta.name,
   description: meta.description,
+  alternates: { canonical: "/services/app-development" },
 };
 
 export default function AppDevelopmentPage() {
