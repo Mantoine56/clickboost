@@ -109,14 +109,17 @@ Canada + US — programmatic city pages for 30+ metro areas
 
 | Project | Category | Description |
 |---------|----------|-------------|
-| High Ties | E-commerce + POS | Cannabis dispensary platform with custom POS, inventory management, e-commerce |
-| SyndicateAI | AI + Complex App | NFL analytics platform with predictive AI models |
-| Mariouomo | E-commerce + Design | Luxury men's fashion e-commerce |
-| Elysian Wellness | Healthcare | Physiotherapy clinic website with service booking |
+| High Ties (highties.ca) | E-commerce + POS | Cannabis dispensary platform with custom POS, inventory management, and full e-commerce |
+| SyndicateAI | AI + Complex App | NFL analytics platform with predictive AI models, math engine, and real-time data agents |
+| Spec-Bot | AI Tool | AI-powered specification generator using GPT-4.1 + LangGraph — chat-based 3-phase workflow (Requirements → Design → Tasks) |
+| NimbleNeedle | Web Design + SEO | Tailoring business website with 15+ service pages, booking system, Google Reviews integration, local SEO |
+| Mariouomo (mariouomo.com) | E-commerce + Design | Luxury men's fashion e-commerce with sophisticated shopping experience |
+| Elysian Wellness | Healthcare | Physiotherapy & wellness clinic website with service booking |
+| HightiesPOS | Custom App | Custom Flutter/Dart POS system with barcode scanning for cannabis retail |
+| Eventzy | App Development | Full-featured event management platform with auth and booking |
 | CashMe | App Development | Business cash income tracking application |
-| DollarTracker | Finance App | Personal finance management with daily budgets |
-| Eventzy | App Development | Event management platform |
-| HightiesPOS | Custom Tool | Custom Flutter POS system with barcode scanning for cannabis retail |
+| DollarTracker | Finance App | Personal finance management with daily budget tracking |
+| ShabebCatan | Fun/Gaming | Catan board game statistics tracker with analytics
 
 ## Testimonials (Draft — based on real project outcomes)
 
