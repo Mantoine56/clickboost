@@ -13,6 +13,17 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getIndustryBySlug } from "@/lib/industries-data";
+import { PageHero } from "@/components/sections/page-hero";
+
+/* Map industry gradient class-names to hex particle colours */
+const industryColorMap: Record<string, string> = {
+  "from-emerald-600 to-teal-600": "#2dd4bf",    // teal-400
+  "from-blue-600 to-indigo-600": "#818cf8",      // indigo-400
+  "from-orange-500 to-pink-500": "#fb923c",      // orange-400
+  "from-sky-600 to-blue-600": "#38bdf8",         // sky-400
+  "from-violet-600 to-purple-600": "#a78bfa",    // violet-400
+  "from-rose-600 to-pink-500": "#fb7185",        // rose-400
+};
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -71,94 +82,76 @@ export function IndustryPageContent({ slug }: { slug: string }) {
   return (
     <>
       {/* ============================================================ */}
-      {/*  HERO                                                        */}
+      {/*  HERO — flow-field background with industry-specific color   */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        {/* Gradient tint */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${industry.gradient} opacity-10`}
-          aria-hidden="true"
-        />
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
+      <PageHero color={industryColorMap[industry.gradient] || "#818cf8"}>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease }}
+        >
+          <Link
+            href="/services"
+            className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <Link
-              href="/services"
-              className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Building2 className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
-              Industries We Serve
+            <Building2 className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
+            Industries We Serve
+          </Link>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          {industry.name}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+          className="mt-4 max-w-2xl text-lg font-medium text-brand-500 sm:text-xl"
+        >
+          {industry.tagline}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease }}
+          className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground"
+        >
+          {industry.description}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease }}
+          className="mt-8 flex flex-col gap-4 sm:flex-row"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
+          >
+            <Link href="/contact">
+              Book Your Free Strategy Session
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="px-8"
           >
-            {industry.name}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease }}
-            className="mt-4 max-w-2xl text-lg font-medium text-brand-500 sm:text-xl"
-          >
-            {industry.tagline}
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease }}
-            className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground"
-          >
-            {industry.description}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="mt-8 flex flex-col gap-4 sm:flex-row"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
-            >
-              <Link href="/contact">
-                Book Your Free Strategy Session
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="px-8"
-            >
-              <Link href="/portfolio">See Our Work</Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+            <Link href="/portfolio">See Our Work</Link>
+          </Button>
+        </motion.div>
+      </PageHero>
 
       {/* ============================================================ */}
       {/*  PAIN POINTS                                                 */}

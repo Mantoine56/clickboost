@@ -17,6 +17,7 @@ import {
   blogPosts,
   type BlogSection,
 } from "@/lib/blog-data";
+import { PageHero } from "@/components/sections/page-hero";
 import { useState } from "react";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
@@ -266,82 +267,71 @@ export function BlogPostContent({ slug }: { slug: string }) {
 
   return (
     <>
-      {/* Article Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${post.gradient} opacity-50`}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"
-          aria-hidden="true"
-        />
-
-        <div className="container-tight relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
+      {/* Article Hero — flow-field background with indigo particles */}
+      <PageHero color="#6366f1" tight className="pb-16 sm:pb-20">
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+        >
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" />
-              Back to Blog
-            </Link>
-          </motion.div>
+            <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" />
+            Back to Blog
+          </Link>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6"
-          >
-            <span className="inline-block rounded-full bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-500">
-              {post.category}
-            </span>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6"
+        >
+          <span className="inline-block rounded-full bg-brand-500/10 px-4 py-1.5 text-xs font-semibold text-brand-500">
+            {post.category}
+          </span>
+        </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease }}
-            className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-          >
-            {post.title}
-          </motion.h1>
+        <motion.h1
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+          className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+        >
+          {post.title}
+        </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2, ease }}
-            className="mt-5 max-w-3xl text-lg text-muted-foreground"
-          >
-            {post.excerpt}
-          </motion.p>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
+          className="mt-5 max-w-3xl text-lg text-muted-foreground"
+        >
+          {post.excerpt}
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.25, ease }}
-            className="mt-8 flex flex-wrap items-center gap-6 text-sm text-muted-foreground"
-          >
-            <span className="flex items-center gap-2">
-              <User className="h-4 w-4" aria-hidden="true" />
-              {post.author}
-            </span>
-            <span className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" aria-hidden="true" />
-              {formatDate(post.publishDate)}
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock className="h-4 w-4" aria-hidden="true" />
-              {post.readTime}
-            </span>
-          </motion.div>
-        </div>
-      </section>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.25, ease }}
+          className="mt-8 flex flex-wrap items-center gap-6 text-sm text-muted-foreground"
+        >
+          <span className="flex items-center gap-2">
+            <User className="h-4 w-4" aria-hidden="true" />
+            {post.author}
+          </span>
+          <span className="flex items-center gap-2">
+            <Calendar className="h-4 w-4" aria-hidden="true" />
+            {formatDate(post.publishDate)}
+          </span>
+          <span className="flex items-center gap-2">
+            <Clock className="h-4 w-4" aria-hidden="true" />
+            {post.readTime}
+          </span>
+        </motion.div>
+      </PageHero>
 
       {/* Article Body */}
       <section className="py-12 sm:py-16">

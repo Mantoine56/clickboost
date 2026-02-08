@@ -5,6 +5,7 @@ import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -38,41 +39,35 @@ const contactInfo = [
 export function ContactContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-8 sm:pt-40 sm:pb-12">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-600/5 to-purple-600/5"
-          aria-hidden="true"
-        />
-        <div className="container-wide relative z-10">
-          <motion.span
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
-            className="text-sm font-semibold uppercase tracking-wider text-brand-500"
-          >
-            Get In Touch
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-3 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl"
-          >
-            Let&rsquo;s Start Your{" "}
-            <span className="text-gradient">Project</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease }}
-            className="mt-4 max-w-xl text-lg text-muted-foreground"
-          >
-            Book a free strategy session. Tell us about your project and
-            we&rsquo;ll get back to you within 24 hours.
-          </motion.p>
-        </div>
-      </section>
+      {/* Hero — flow-field background with indigo-500 particles */}
+      <PageHero color="#6366f1" className="pb-8 sm:pb-12">
+        <motion.span
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+          className="text-sm font-semibold uppercase tracking-wider text-brand-500"
+        >
+          Get In Touch
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-3 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl"
+        >
+          Let&rsquo;s Start Your{" "}
+          <span className="text-gradient">Project</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease }}
+          className="mt-4 max-w-xl text-lg text-muted-foreground"
+        >
+          Book a free strategy session. Tell us about your project and
+          we&rsquo;ll get back to you within 24 hours.
+        </motion.p>
+      </PageHero>
 
       {/* Contact Form + Info */}
       <section className="section-padding">

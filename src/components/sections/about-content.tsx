@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Timeline } from "@/components/ui/timeline";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -106,43 +107,37 @@ const technologies = [
 export function AboutContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-600/5 to-purple-600/5"
-          aria-hidden="true"
-        />
-        <div className="container-wide relative z-10">
-          <motion.span
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
-            className="text-sm font-semibold uppercase tracking-wider text-brand-500"
-          >
-            About ClickBoost
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-3 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-          >
-            A Modern Tech Studio Built for{" "}
-            <span className="text-gradient">Results</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease }}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
-          >
-            We&rsquo;re a team of developers, designers, and strategists who
-            believe technology should work harder for your business. We combine
-            deep technical expertise with business-first thinking to deliver
-            solutions that look incredible and drive measurable growth.
-          </motion.p>
-        </div>
-      </section>
+      {/* Hero — flow-field background with indigo-400 particles */}
+      <PageHero color="#818cf8">
+        <motion.span
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+          className="text-sm font-semibold uppercase tracking-wider text-brand-500"
+        >
+          About ClickBoost
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-3 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          A Modern Tech Studio Built for{" "}
+          <span className="text-gradient">Results</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease }}
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
+        >
+          We&rsquo;re a team of developers, designers, and strategists who
+          believe technology should work harder for your business. We combine
+          deep technical expertise with business-first thinking to deliver
+          solutions that look incredible and drive measurable growth.
+        </motion.p>
+      </PageHero>
 
       {/* Story */}
       <section className="section-padding bg-surface">

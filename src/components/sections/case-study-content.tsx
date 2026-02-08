@@ -16,6 +16,23 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects, getProjectBySlug } from "@/lib/portfolio-data";
+import { PageHero } from "@/components/sections/page-hero";
+
+/* Map gradient class-names to hex particle colours */
+const gradientColorMap: Record<string, string> = {
+  "from-green-600 to-emerald-500": "#34d399",   // emerald-400
+  "from-violet-600 to-purple-600": "#a78bfa",   // violet-400
+  "from-blue-600 to-cyan-600": "#22d3ee",       // cyan-400
+  "from-amber-500 to-orange-500": "#fb923c",    // orange-400
+  "from-rose-600 to-pink-500": "#fb7185",       // rose-400
+  "from-teal-600 to-emerald-600": "#2dd4bf",    // teal-400
+  "from-orange-600 to-red-500": "#f97316",      // orange-500
+  "from-sky-600 to-blue-600": "#38bdf8",        // sky-400
+  "from-indigo-600 to-violet-600": "#818cf8",   // indigo-400
+  "from-emerald-600 to-teal-600": "#34d399",    // emerald-400
+  "from-fuchsia-600 to-pink-600": "#e879f9",    // fuchsia-400
+  "from-cyan-600 to-blue-600": "#22d3ee",       // cyan-400
+};
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -28,64 +45,56 @@ export function CaseStudyContent({ slug }: { slug: string }) {
   const nextProject =
     currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
+  /* Resolve project-specific particle colour */
+  const heroColor = gradientColorMap[project.gradient] || "#a78bfa";
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-15`}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
-          aria-hidden="true"
-        />
-
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
+      {/* Hero — flow-field background with project-specific color */}
+      <PageHero color={heroColor}>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+        >
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none rounded"
           >
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none rounded"
-            >
-              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-              Back to Portfolio
-            </Link>
-          </motion.div>
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Back to Portfolio
+          </Link>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-8"
+        <motion.div
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-8"
+        >
+          <Badge
+            variant="secondary"
+            className="bg-brand-500/10 text-brand-500 border-brand-500/20"
           >
-            <Badge
-              variant="secondary"
-              className="bg-brand-500/10 text-brand-500 border-brand-500/20"
-            >
-              {project.category}
-            </Badge>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {project.title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-xl text-muted-foreground">
-              {project.tagline}
-            </p>
-          </motion.div>
+            {project.category}
+          </Badge>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            {project.title}
+          </h1>
+          <p className="mt-4 max-w-2xl text-xl text-muted-foreground">
+            {project.tagline}
+          </p>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2, ease }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
-          >
-            {project.description}
-          </motion.p>
-        </div>
-      </section>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
+          className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
+        >
+          {project.description}
+        </motion.p>
+      </PageHero>
 
       {/* Challenge */}
       <section className="section-padding bg-surface">

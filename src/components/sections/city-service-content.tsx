@@ -24,6 +24,7 @@ import {
   getCityBySlug,
   getServiceBySlug as getCityServiceBySlug,
 } from "@/lib/cities-data";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -49,6 +50,16 @@ const serviceGradients: Record<string, string> = {
   "app-development": "from-orange-600 to-red-500",
   wordpress: "from-sky-600 to-blue-600",
   shopify: "from-green-600 to-emerald-500",
+};
+
+/* Hex colours for flow-field particles, per service */
+const serviceHeroColors: Record<string, string> = {
+  "web-development": "#60a5fa", // blue-400
+  seo: "#34d399",               // emerald-400
+  "ai-implementation": "#a78bfa", // violet-400
+  "app-development": "#fb923c", // orange-400
+  wordpress: "#38bdf8",         // sky-400
+  shopify: "#4ade80",           // green-400
 };
 
 /* ------------------------------------------------------------------ */
@@ -322,109 +333,94 @@ export function CityServiceContent({
   return (
     <>
       {/* ============================================================ */}
-      {/*  HERO                                                        */}
+      {/*  HERO — flow-field background with service-specific color    */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        {/* Gradient tint */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-10`}
-          aria-hidden="true"
-        />
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-            className="flex items-center gap-4"
+      <PageHero
+        color={serviceHeroColors[serviceSlug] || "#818cf8"}
+        particleCount={400}
+      >
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease }}
+          className="flex items-center gap-4"
+        >
+          <Link
+            href={`/${citySlug}`}
+            className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <Link
-              href={`/${citySlug}`}
-              className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <MapPin className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
-              {city.name}, {location}
+            <MapPin className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
+            {city.name}, {location}
+          </Link>
+          <span className="text-muted-foreground/40" aria-hidden="true">
+            /
+          </span>
+          <span className="text-sm text-muted-foreground">
+            {service.name}
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6 flex items-center gap-4"
+        >
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${gradient}`}
+          >
+            <Icon className="h-7 w-7 text-white" aria-hidden="true" />
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              {service.name} in{" "}
+              <span className="text-gradient">{city.name}</span>
+            </h1>
+            <p className="mt-1 text-lg text-muted-foreground">
+              {location}, {city.country}
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease }}
+          className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
+        >
+          {service.description} We bring enterprise-quality {service.name.toLowerCase()}{" "}
+          to {city.name} businesses — {city.description.toLowerCase()},{" "}
+          and we help local companies stand out with technology that drives real results.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease }}
+          className="mt-8 flex flex-col gap-4 sm:flex-row"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
+          >
+            <Link href="/contact">
+              Book Your Free Strategy Session
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
-            <span className="text-muted-foreground/40" aria-hidden="true">
-              /
-            </span>
-            <span className="text-sm text-muted-foreground">
-              {service.name}
-            </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6 flex items-center gap-4"
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="px-8"
           >
-            <div
-              className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${gradient}`}
-            >
-              <Icon className="h-7 w-7 text-white" aria-hidden="true" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                {service.name} in{" "}
-                <span className="text-gradient">{city.name}</span>
-              </h1>
-              <p className="mt-1 text-lg text-muted-foreground">
-                {location}, {city.country}
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
-          >
-            {service.description} We bring enterprise-quality {service.name.toLowerCase()}{" "}
-            to {city.name} businesses — {city.description.toLowerCase()},{" "}
-            and we help local companies stand out with technology that drives real results.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="mt-8 flex flex-col gap-4 sm:flex-row"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
-            >
-              <Link href="/contact">
-                Book Your Free Strategy Session
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="px-8"
-            >
-              <Link href={`/services/${serviceSlug}`}>
-                Learn More About {service.name}
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+            <Link href={`/services/${serviceSlug}`}>
+              Learn More About {service.name}
+            </Link>
+          </Button>
+        </motion.div>
+      </PageHero>
 
       {/* ============================================================ */}
       {/*  WHY THIS SERVICE IN THIS CITY                               */}

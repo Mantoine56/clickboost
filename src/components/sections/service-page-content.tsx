@@ -6,83 +6,92 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Timeline } from "@/components/ui/timeline";
 import { getServiceBySlug } from "@/lib/services-data";
+import { PageHero } from "@/components/sections/page-hero";
+
+/* Map each service slug to a particle color for the hero */
+const serviceColors: Record<string, string> = {
+  "web-development": "#60a5fa", // blue-400
+  seo: "#34d399",               // emerald-400
+  "ai-implementation": "#a78bfa", // violet-400
+  "app-development": "#fb923c", // orange-400
+  wordpress: "#38bdf8",         // sky-400
+  shopify: "#4ade80",           // green-400
+};
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export function ServicePageContent({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
   if (!service) return null;
+
+  /* Resolve per-service particle color */
+  const heroColor = serviceColors[slug] || "#818cf8";
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10`}
-          aria-hidden="true"
-        />
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
+      {/* Hero — flow-field background with service-specific color */}
+      <PageHero color={heroColor}>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease }}
+        >
+          <Link
+            href="/services"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Link
-              href="/services"
-              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              &larr; All Services
+            &larr; All Services
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6 flex items-center gap-4"
+        >
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient}`}
+          >
+            <service.icon className="h-7 w-7 text-white" aria-hidden="true" />
+          </div>
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              {service.name}
+            </h1>
+            <p className="mt-1 text-lg text-muted-foreground">
+              {service.tagline}
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease }}
+          className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
+        >
+          {service.description}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease }}
+          className="mt-8"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
+          >
+            <Link href="/contact">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6 flex items-center gap-4"
-          >
-            <div
-              className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient}`}
-            >
-              <service.icon className="h-7 w-7 text-white" aria-hidden="true" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                {service.name}
-              </h1>
-              <p className="mt-1 text-lg text-muted-foreground">
-                {service.tagline}
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease }}
-            className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground"
-          >
-            {service.description}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="mt-8"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-brand-500 px-8 text-white hover:bg-brand-600 glow"
-            >
-              <Link href="/contact">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+          </Button>
+        </motion.div>
+      </PageHero>
 
       {/* Features */}
       <section className="section-padding bg-surface">

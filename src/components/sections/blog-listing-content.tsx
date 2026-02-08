@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/lib/blog-data";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -41,52 +42,36 @@ function formatDate(dateString: string): string {
 export function BlogListingContent() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-800/50 via-brand-900/30 to-background"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="container-wide relative z-10">
-          <motion.span
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
-            className="text-sm font-semibold uppercase tracking-wider text-brand-400"
-          >
-            From the Blog
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-          >
-            Insights &{" "}
-            <span className="text-gradient">Resources</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2, ease }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground"
-          >
-            Expert perspectives on web development, SEO, AI implementation, and
-            digital growth. Actionable advice to help your business thrive
-            online.
-          </motion.p>
-        </div>
-      </section>
+      {/* Hero — flow-field background with indigo-500 particles */}
+      <PageHero color="#6366f1">
+        <motion.span
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+          className="text-sm font-semibold uppercase tracking-wider text-brand-400"
+        >
+          From the Blog
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          Insights &{" "}
+          <span className="text-gradient">Resources</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
+          className="mt-6 max-w-2xl text-lg text-muted-foreground"
+        >
+          Expert perspectives on web development, SEO, AI implementation, and
+          digital growth. Actionable advice to help your business thrive
+          online.
+        </motion.p>
+      </PageHero>
 
       {/* Blog Grid */}
       <section className="section-padding bg-surface">

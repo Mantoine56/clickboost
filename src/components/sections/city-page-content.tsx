@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getCityBySlug, servicesList } from "@/lib/cities-data";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -111,93 +112,70 @@ export function CityPageContent({ citySlug }: { citySlug: string }) {
   return (
     <>
       {/* ============================================================ */}
-      {/*  HERO                                                        */}
+      {/*  HERO — dark immersive flow-field background                 */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        {/* Gradient background */}
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-800 to-purple-900 opacity-90"
-          aria-hidden="true"
-        />
-        {/* Radial accent */}
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-400/20 via-transparent to-transparent"
-          aria-hidden="true"
-        />
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-          aria-hidden="true"
-        />
+      <PageHero color="#818cf8" dark>
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease }}
+          className="flex items-center gap-2"
+        >
+          <MapPin className="h-4 w-4 text-brand-300" aria-hidden="true" />
+          <span className="text-sm font-medium text-brand-200">
+            {city.name}, {location} &mdash; {city.country}
+          </span>
+        </motion.div>
 
-        <div className="container-wide relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-            className="flex items-center gap-2"
-          >
-            <MapPin className="h-4 w-4 text-brand-300" aria-hidden="true" />
-            <span className="text-sm font-medium text-brand-200">
-              {city.name}, {location} &mdash; {city.country}
-            </span>
-          </motion.div>
+        <motion.h1
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+        >
+          Web Development, SEO &amp; AI in{" "}
+          <span className="bg-gradient-to-r from-brand-300 to-brand-100 bg-clip-text text-transparent">
+            {city.name}
+          </span>
+        </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
-          >
-            Web Development, SEO &amp; AI in{" "}
-            <span className="bg-gradient-to-r from-brand-300 to-brand-100 bg-clip-text text-transparent">
-              {city.name}
-            </span>
-          </motion.h1>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
+        >
+          {city.description}. We help businesses in {city.name} build
+          stunning websites, dominate local search results, and leverage
+          AI to scale faster than the competition.
+        </motion.p>
 
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease }}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-100/80"
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25, ease }}
+          className="mt-8 flex flex-col gap-4 sm:flex-row"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="bg-white px-8 text-base text-brand-900 hover:bg-brand-50"
           >
-            {city.description}. We help businesses in {city.name} build
-            stunning websites, dominate local search results, and leverage
-            AI to scale faster than the competition.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25, ease }}
-            className="mt-8 flex flex-col gap-4 sm:flex-row"
+            <Link href="/contact">
+              Book Your Free Strategy Session
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-white/20 px-8 text-base text-white hover:bg-white/10"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-white px-8 text-base text-brand-900 hover:bg-brand-50"
-            >
-              <Link href="/contact">
-                Book Your Free Strategy Session
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white/20 px-8 text-base text-white hover:bg-white/10"
-            >
-              <Link href="/portfolio">See Our Work</Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+            <Link href="/portfolio">See Our Work</Link>
+          </Button>
+        </motion.div>
+      </PageHero>
 
       {/* ============================================================ */}
       {/*  SERVICES GRID                                               */}

@@ -16,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getComparisonBySlug, comparisons } from "@/lib/comparisons-data";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -224,66 +225,55 @@ export function ComparisonContent({ slug }: { slug: string }) {
 
   return (
     <>
-      {/* ---- Hero ---- */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-500/10 via-purple-500/5 to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"
-          aria-hidden="true"
-        />
-
-        <div className="container-tight relative z-10">
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
+      {/* ---- Hero — flow-field background with indigo-400 particles ---- */}
+      <PageHero color="#818cf8" tight className="pb-16 sm:pb-20">
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+        >
+          <Link
+            href="/compare"
+            className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <Link
-              href="/compare"
-              className="inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" />
-              All Comparisons
-            </Link>
-          </motion.div>
+            <ArrowLeft className="mr-1 h-4 w-4" aria-hidden="true" />
+            All Comparisons
+          </Link>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-6"
+        <motion.div
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-6"
+        >
+          <Badge
+            variant="outline"
+            className="border-brand-500/30 text-brand-500"
           >
-            <Badge
-              variant="outline"
-              className="border-brand-500/30 text-brand-500"
-            >
-              <Scale className="mr-1.5 h-3 w-3" aria-hidden="true" />
-              Expert Comparison
-            </Badge>
-          </motion.div>
+            <Scale className="mr-1.5 h-3 w-3" aria-hidden="true" />
+            Expert Comparison
+          </Badge>
+        </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15, ease }}
-            className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-          >
-            <span className="text-gradient">{comparison.title}</span>
-          </motion.h1>
+        <motion.h1
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+          className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+        >
+          <span className="text-gradient">{comparison.title}</span>
+        </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2, ease }}
-            className="mt-5 max-w-3xl text-lg text-muted-foreground sm:text-xl"
-          >
-            {comparison.excerpt}
-          </motion.p>
-        </div>
-      </section>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
+          className="mt-5 max-w-3xl text-lg text-muted-foreground sm:text-xl"
+        >
+          {comparison.excerpt}
+        </motion.p>
+      </PageHero>
 
       {/* ---- Side-by-Side Overview ---- */}
       <section className="py-12 sm:py-16">

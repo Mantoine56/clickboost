@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { projects, filterCategories } from "@/lib/portfolio-data";
 import { ProjectCard } from "@/components/ui/project-card";
+import { PageHero } from "@/components/sections/page-hero";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -19,41 +20,35 @@ export function PortfolioContent() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-700 to-purple-800 opacity-10"
-          aria-hidden="true"
-        />
-        <div className="container-wide relative z-10">
-          <motion.span
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease }}
-            className="text-sm font-semibold uppercase tracking-wider text-brand-500"
-          >
-            Our Work
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 1, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-          >
-            Projects That{" "}
-            <span className="text-gradient">Speak for Themselves</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 1, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2, ease }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground"
-          >
-            From AI-powered platforms to e-commerce empires, every project is
-            crafted for performance, scalability, and real business impact.
-          </motion.p>
-        </div>
-      </section>
+      {/* Hero — flow-field background with violet-400 particles */}
+      <PageHero color="#a78bfa">
+        <motion.span
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease }}
+          className="text-sm font-semibold uppercase tracking-wider text-brand-500"
+        >
+          Our Work
+        </motion.span>
+        <motion.h1
+          initial={{ opacity: 1, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+        >
+          Projects That{" "}
+          <span className="text-gradient">Speak for Themselves</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 1, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease }}
+          className="mt-6 max-w-2xl text-lg text-muted-foreground"
+        >
+          From AI-powered platforms to e-commerce empires, every project is
+          crafted for performance, scalability, and real business impact.
+        </motion.p>
+      </PageHero>
 
       {/* Filter + Grid */}
       <section className="section-padding bg-surface">
