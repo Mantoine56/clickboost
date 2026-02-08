@@ -1,45 +1,73 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Globe, Search, Bot, Smartphone, ArrowRight } from "lucide-react";
+import { Globe, Search, Bot, Smartphone } from "lucide-react";
+import { FlipCard } from "@/components/ui/flip-card";
 
 const services = [
   {
     icon: Globe,
     name: "Web Development",
+    tagline: "Custom websites and web applications built for performance",
     description:
-      "Custom websites and web applications built with modern tech stacks. From Next.js to WordPress and Shopify.",
+      "We build modern, fast, accessible websites and web applications using the latest technologies. From marketing sites to complex web apps.",
     href: "/services/web-development",
-    color: "from-blue-500/10 to-cyan-500/10",
-    iconColor: "text-blue-500",
+    gradient: "from-blue-600 to-cyan-600",
+    accentColor: "#2563eb",
+    features: [
+      "Custom Next.js & React",
+      "Mobile-First Design",
+      "Performance Optimized",
+      "CMS Integration",
+    ],
   },
   {
     icon: Search,
     name: "SEO & Digital Growth",
+    tagline: "Data-driven strategies that deliver measurable organic growth",
     description:
-      "Technical SEO, local SEO, and content strategy that drives measurable organic growth and revenue.",
+      "Technical SEO, content strategy, and digital marketing to drive sustainable organic growth and measurable business outcomes.",
     href: "/services/seo",
-    color: "from-emerald-500/10 to-green-500/10",
-    iconColor: "text-emerald-500",
+    gradient: "from-emerald-600 to-green-600",
+    accentColor: "#059669",
+    features: [
+      "Technical SEO Audits",
+      "Local SEO & Citations",
+      "Content Strategy",
+      "Programmatic SEO",
+    ],
   },
   {
     icon: Bot,
     name: "AI Implementation",
+    tagline: "Intelligent automation that transforms your business",
     description:
-      "Custom AI agents, workflow automation, and intelligent tools that transform how your business operates.",
+      "Custom AI agents, workflow automation, and intelligent tools that solve real business problems with measurable ROI.",
     href: "/services/ai-implementation",
-    color: "from-brand-500/10 to-purple-500/10",
-    iconColor: "text-brand-500",
+    gradient: "from-brand-600 to-purple-600",
+    accentColor: "#7c3aed",
+    features: [
+      "Custom AI Agents",
+      "Workflow Automation",
+      "AI Chatbots",
+      "Strategy Consulting",
+    ],
   },
   {
     icon: Smartphone,
     name: "App Development",
+    tagline: "Mobile apps and SaaS platforms built for scale",
     description:
-      "Mobile apps, SaaS platforms, and custom business tools built for scale and exceptional user experience.",
+      "Mobile applications, SaaS platforms, and custom business tools built with robust architecture and exceptional UX.",
     href: "/services/app-development",
-    color: "from-orange-500/10 to-amber-500/10",
-    iconColor: "text-orange-500",
+    gradient: "from-orange-600 to-rose-600",
+    accentColor: "#ea580c",
+    features: [
+      "Cross-Platform Apps",
+      "SaaS Platforms",
+      "Custom Business Tools",
+      "POS Systems",
+    ],
   },
 ];
 
@@ -107,41 +135,20 @@ export function ServicesPreview() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
         >
           {services.map((service) => (
             <motion.div key={service.name} variants={cardVariants}>
-              <Link
+              <FlipCard
+                icon={service.icon}
+                name={service.name}
+                tagline={service.tagline}
+                description={service.description}
+                features={service.features}
+                gradient={service.gradient}
+                accentColor={service.accentColor}
                 href={service.href}
-                className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-elevation-1 transition-all duration-300 hover:shadow-elevation-2 hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-              >
-                {/* Icon */}
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${service.color}`}
-                >
-                  <service.icon
-                    className={`h-6 w-6 ${service.iconColor}`}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* Content */}
-                <h3 className="mt-4 text-lg font-semibold text-foreground">
-                  {service.name}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-
-                {/* Learn more link */}
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-500 transition-colors group-hover:text-brand-400">
-                  Learn More
-                  <ArrowRight
-                    className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </span>
-              </Link>
+              />
             </motion.div>
           ))}
         </motion.div>
