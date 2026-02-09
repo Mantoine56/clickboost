@@ -41,7 +41,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-background">
+    <section className="overflow-x-clip bg-background">
       <div className="container-wide pt-16 sm:pt-24">
         <div className="mx-auto max-w-2xl text-center">
           <motion.span
