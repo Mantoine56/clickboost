@@ -84,6 +84,8 @@ const industries = [
 const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
+  // Keep a direct route to the city hub for crawl discovery and UX.
+  { name: "Locations", href: "/locations" },
   { name: "About", href: "/about" },
 ];
 

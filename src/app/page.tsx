@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { ServicesPreview } from "@/components/sections/services-preview";
+import { PopularCitiesLinks } from "@/components/sections/popular-cities-links";
 import { PortfolioPreview } from "@/components/sections/portfolio-preview";
 import { Stats } from "@/components/sections/stats";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -11,6 +12,8 @@ export default function HomePage() {
     <>
       <Hero />
       <ServicesPreview />
+      {/* Surface high-value city pages directly from the homepage. */}
+      <PopularCitiesLinks />
       <PortfolioPreview />
       <Stats />
       <Testimonials />

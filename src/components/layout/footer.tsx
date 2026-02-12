@@ -20,6 +20,8 @@ const industryLinks = [
 
 const companyLinks = [
   { name: "About", href: "/about" },
+  // Link the location hub globally so city pages are easier to discover.
+  { name: "Locations", href: "/locations" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },

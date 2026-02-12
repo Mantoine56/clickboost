@@ -13,6 +13,26 @@ export interface ProjectCardProps {
   href: string;
 }
 
+function getDeterministicLineStyles(seed: string) {
+  // Generate stable pseudo-random values from a fixed seed so SSR and client match.
+  const baseHash = Array.from(seed).reduce(
+    (hash, char) => ((hash * 33 + char.charCodeAt(0)) >>> 0),
+    5381
+  );
+
+  return Array.from({ length: 5 }, (_, i) => {
+    const widthJitter = ((baseHash >> (i * 3)) + i * 7) % 30;
+    const marginJitter = ((baseHash >> (i * 2)) + i * 5) % 20;
+
+    return {
+      width: `${40 + widthJitter}%`,
+      animationDelay: `${i * 0.25}s`,
+      marginLeft: `${marginJitter}%`,
+      opacity: 0,
+    };
+  });
+}
+
 export function ProjectCard({
   title,
   category,
@@ -21,6 +41,9 @@ export function ProjectCard({
   tags,
   href,
 }: ProjectCardProps) {
+  // Stable line styles avoid hydration mismatch caused by Math.random() in render.
+  const lineStyles = getDeterministicLineStyles(`${title}-${href}`);
+
   return (
     <Link
       href={href}
@@ -37,16 +60,11 @@ export function ProjectCard({
       >
         {/* Animated code lines background */}
         <div className="absolute inset-x-0 top-0 flex h-full flex-col items-center justify-center gap-2 overflow-hidden opacity-30 pointer-events-none">
-          {[...Array(5)].map((_, i) => (
+          {lineStyles.map((lineStyle, i) => (
             <div
               key={i}
               className="h-2 rounded-sm bg-white/30 animate-[slideIn_2s_ease-in-out_infinite]"
-              style={{
-                width: `${40 + Math.random() * 30}%`,
-                animationDelay: `${i * 0.25}s`,
-                marginLeft: `${Math.random() * 20}%`,
-                opacity: 0,
-              }}
+              style={lineStyle}
             />
           ))}
         </div>
