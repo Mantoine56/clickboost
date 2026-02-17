@@ -267,10 +267,14 @@ function AnimatedCounter({
   suffix: string;
   inView: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target); // SSR: render real numbers for Googlebot
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView) {
+      // Reset to 0 so animation can play when scrolled into view
+      setCount(0);
+      return;
+    }
 
     const duration = 2000;
     const startTime = performance.now();

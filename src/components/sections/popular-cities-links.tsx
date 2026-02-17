@@ -2,24 +2,21 @@ import Link from "next/link";
 
 // Keep this list intentionally small on the homepage to avoid a spammy link block.
 const popularCities = [
-  { name: "Toronto", href: "/toronto" },
   { name: "Ottawa", href: "/ottawa" },
-  { name: "Vancouver", href: "/vancouver" },
+  { name: "Toronto", href: "/toronto" },
   { name: "Montreal", href: "/montreal" },
+  { name: "Vancouver", href: "/vancouver" },
   { name: "Calgary", href: "/calgary" },
-  { name: "Edmonton", href: "/edmonton" },
-  { name: "New York", href: "/new-york" },
-  { name: "Los Angeles", href: "/los-angeles" },
 ];
 
 // Add a few high-intent city + service links to strengthen topical internal linking.
 const popularCityServicePages = [
-  { label: "Web Development in Toronto", href: "/toronto/web-development" },
-  { label: "SEO in Toronto", href: "/toronto/seo" },
   { label: "Web Development in Ottawa", href: "/ottawa/web-development" },
   { label: "SEO in Ottawa", href: "/ottawa/seo" },
+  { label: "Web Development in Toronto", href: "/toronto/web-development" },
+  { label: "SEO in Toronto", href: "/toronto/seo" },
   { label: "AI Implementation in Vancouver", href: "/vancouver/ai-implementation" },
-  { label: "Web Development in New York", href: "/new-york/web-development" },
+  { label: "SEO in Montreal", href: "/montreal/seo" },
 ];
 
 export function PopularCitiesLinks() {
@@ -32,8 +29,8 @@ export function PopularCitiesLinks() {
               Popular Cities We Serve
             </h2>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-              Explore city landing pages for Canada and the United States, then
-              see how each market maps to your service goals.
+              Explore our Canadian city landing pages and see how each market
+              maps to your service goals.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="list">
               {popularCities.map((city) => (
