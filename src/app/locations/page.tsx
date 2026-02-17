@@ -3,16 +3,14 @@ import Link from "next/link";
 import { cities } from "@/lib/cities-data";
 
 export const metadata: Metadata = {
-  title: "Locations We Serve Across Canada & the US",
+  title: "Locations We Serve Across Canada",
   description:
-    "Browse ClickBoost city pages across Canada and the United States for web development, SEO, AI implementation, and app development services.",
+    "Browse ClickBoost city pages across Canada for web development, SEO, AI implementation, and app development services.",
   alternates: { canonical: "/locations" },
 };
 
 // Sort city names once so output remains stable between builds.
 const sortedCities = [...cities].sort((a, b) => a.name.localeCompare(b.name));
-const canadianCities = sortedCities.filter((city) => city.country === "Canada");
-const usCities = sortedCities.filter((city) => city.country === "United States");
 
 export default function LocationsPage() {
   return (
@@ -28,7 +26,7 @@ export default function LocationsPage() {
             Locations
           </p>
           <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl">
-            City Coverage Across Canada &amp; the United States
+            City Coverage Across Canada
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-muted-foreground">
             Use this hub to find your city page and service variations. Each
@@ -39,54 +37,28 @@ export default function LocationsPage() {
       </section>
 
       <section className="section-padding border-t border-border bg-surface">
-        <div className="container-wide grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Canada ({canadianCities.length})
-            </h2>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2" role="list">
-              {canadianCities.map((city) => (
-                <li key={city.slug}>
-                  <Link
-                    href={`/${city.slug}`}
-                    className="group flex items-center justify-between rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-brand-500/40 hover:text-brand-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        <div className="container-wide max-w-2xl">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Canada ({sortedCities.length})
+          </h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2" role="list">
+            {sortedCities.map((city) => (
+              <li key={city.slug}>
+                <Link
+                  href={`/${city.slug}`}
+                  className="group flex items-center justify-between rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-brand-500/40 hover:text-brand-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                >
+                  {city.name}
+                  <span
+                    className="text-muted-foreground transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
                   >
-                    {city.name}
-                    <span
-                      className="text-muted-foreground transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    >
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              United States ({usCities.length})
-            </h2>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2" role="list">
-              {usCities.map((city) => (
-                <li key={city.slug}>
-                  <Link
-                    href={`/${city.slug}`}
-                    className="group flex items-center justify-between rounded-lg border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-brand-500/40 hover:text-brand-500 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-                  >
-                    {city.name}
-                    <span
-                      className="text-muted-foreground transition-transform group-hover:translate-x-0.5"
-                      aria-hidden="true"
-                    >
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    &rarr;
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
