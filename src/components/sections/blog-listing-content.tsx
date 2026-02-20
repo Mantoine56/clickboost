@@ -83,7 +83,7 @@ export function BlogListingContent() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
-            {blogPosts.map((post) => (
+            {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).map((post) => (
               <motion.article key={post.slug} variants={cardVariants}>
                 <Link
                   href={`/blog/${post.slug}`}

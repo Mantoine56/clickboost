@@ -8,7 +8,7 @@ import { blogPosts } from "@/lib/blog-data";
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
-const previewPosts = blogPosts.slice(0, 3);
+const previewPosts = [...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 3);
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString + "T00:00:00");
