@@ -529,6 +529,169 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: "red-flags-hiring-web-design-agency-ottawa",
+    title: "7 Red Flags When Hiring a Web Design Agency (Ottawa Business Owners, Read This First)",
+    excerpt:
+      "Before you sign anything with a web design agency in Ottawa, watch for these seven warning signs. They could save you thousands of dollars and months of frustration.",
+    category: "Business",
+    author: "ClickBoost Team",
+    publishDate: "2026-02-20",
+    readTime: "8 min read",
+    gradient: "from-red-500/20 to-orange-500/20",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Ottawa has no shortage of web design agencies. A quick Google search turns up dozens, ranging from solo freelancers to mid-sized studios, all promising modern design, fast delivery, and great results. The problem is that not all of them deliver. Every year, Ottawa business owners spend tens of thousands of dollars on websites that miss deadlines, underperform on search, and require expensive fixes months after launch. Most of those painful experiences share the same early warning signs — signs that were visible before a single contract was signed. This post is about those warning signs. If you already know what to look for in a good agency, our guide on how to choose a web development agency covers the full evaluation framework. But if you want to know what should send you running in the other direction, keep reading.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #1: They Quote You Before Asking a Single Question",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A reputable web design agency does not send you a price within 24 hours of your first inquiry. Building an effective website requires understanding your business model, your customers, your competitors, your content strategy, and your technical requirements. That takes a real conversation — usually a 45- to 60-minute discovery call and a follow-up questionnaire at minimum.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Agencies that skip this step are selling a commodity, not a solution. They are fitting your business into a pre-built template or a standard package they sell to every client regardless of industry. When they inevitably build something that misses the mark, the response is always the same: 'That was outside the original scope.' The discovery phase is not overhead. It is the foundation that determines whether the finished website actually does what your business needs it to do.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #2: Their Own Website Is Slow or Outdated",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This one should be obvious, but it gets overlooked constantly. Before you hire a web design agency, visit their website and test it. Open Google PageSpeed Insights and paste in their URL. If their own site scores below 70 on mobile performance, that is a direct reflection of the work they will do for you. If their site has not been updated in three years, uses a dated layout, or takes five seconds to load on your phone, ask yourself: why would a company that builds websites for a living tolerate a bad website of their own?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Some agencies will explain this away by saying they are too busy with client work. That is not a reassuring answer. It means client work consistently deprioritizes performance and maintenance, which is exactly what will happen to your site after launch. The agency's own website is the best portfolio piece they own. If they have not invested in it, take note.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #3: They Guarantee First-Page Google Rankings",
+      },
+      {
+        type: "paragraph",
+        content:
+          "No one can guarantee a specific ranking on Google. Not a web design agency, not an SEO firm, not Google's own partners. Search rankings are determined by hundreds of factors — many of which are outside any agency's control — and they shift constantly as Google updates its algorithm and your competitors publish new content. Any agency that promises you 'top of page one within 90 days' is either lying to win your business or planning to use black-hat tactics that will get your site penalized.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "What a legitimate agency can promise is a website built with SEO best practices: fast load times, clean semantic markup, proper heading structure, schema markup, mobile responsiveness, and a content architecture that gives your pages the best possible chance to rank. According to a 2024 BrightEdge study, 68% of all online experiences begin with a search engine — so SEO matters enormously. But it is a long-term discipline, not a 90-day guarantee. Be very skeptical of any agency in Ottawa or elsewhere that tells you otherwise.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #4: The Contract Is Vague — or the Platform Locks You In",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Two distinct contract problems show up regularly. The first is vagueness: a proposal that lists deliverables like 'website design and development' without specifying the number of pages, revision rounds, features, integrations, or what constitutes a completed project. Vague contracts protect the agency, not you. Every ambiguity will be resolved in their favour at extra cost.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The second problem is platform lock-in. Some agencies build on proprietary website builders or customized platforms that only they can maintain. When you eventually want to make changes, add features, or switch agencies, you discover that you effectively cannot. You are stuck paying their maintenance fees indefinitely or rebuilding from scratch. Before signing, confirm in writing that you will own all code, design files, and content — and that your site can be handed off to any competent developer in the future. Your website is a business asset. You should have full ownership of it.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #5: They Cannot Show You Live, Working Client Sites",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Portfolio screenshots are easy to curate. What you actually want to see is live websites — sites you can visit, test on mobile, and run through a performance checker right now. Ask any agency you are considering for three to five live examples of websites they have built in the last two years that are similar to your project scope.",
+      },
+      {
+        type: "list",
+        content: "When you visit those live sites, check for:",
+        items: [
+          "Mobile performance: does the site load quickly on a phone with a typical LTE connection?",
+          "Core Web Vitals: run it through PageSpeed Insights and look for scores above 75 on mobile",
+          "Design freshness: does the site look current, or does it feel like it was built five years ago and never updated?",
+          "Functionality: test the contact forms, navigation, and any interactive elements",
+          "SEO basics: does the site have proper page titles, meta descriptions, and a logical URL structure?",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "If an agency hedges on showing you live sites — citing NDAs, client preferences, or claiming their best work is under construction — that is a significant red flag. A confident agency with strong work will show you without hesitation.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #6: The Quote Is Suspiciously Low",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Budget matters, especially for small businesses. But a quote that seems too good to be true almost always is. A professional, custom website for an Ottawa small business typically costs between $5,000 and $20,000 depending on scope and features. Quotes significantly below that range usually involve one of the following: a developer with minimal experience, a template-based build dressed up as custom work, undisclosed offshore subcontracting, or a stripped-down scope that will expand with expensive change orders once work has begun.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Low-cost agencies often offset their rates through ongoing hosting and maintenance fees that lock you in at $200 to $500 per month for services you could otherwise get for $30 to $50 through a reputable host. Over three years, the 'affordable' agency often ends up costing more than the higher-priced one that built the right thing the first time. Ask for a full cost breakdown: upfront development, post-launch hosting, ongoing maintenance, and the cost of common change requests. The full picture will tell a very different story than the headline number.",
+      },
+      {
+        type: "heading",
+        content: "Red Flag #7: There Is No Plan for After Launch",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The launch of your website is not the end of the engagement — it is the beginning. Websites need regular software updates, security patches, content changes, performance monitoring, and periodic redesigns to stay competitive. An agency that presents you with a proposal covering only the build phase, with nothing about what happens afterward, is setting you up for a gap in support at the worst possible time.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Before signing, ask specifically: What is included in post-launch support, and for how long? What is the process for requesting changes after launch? Who do you call if the site goes down on a Saturday evening? What does ongoing maintenance cost? A professional agency will have clear, documented answers to all of these. If they seem to be making it up on the spot, or if the answer is 'just email us,' proceed with caution.",
+      },
+      {
+        type: "subheading",
+        content: "A Quick Pre-Signing Checklist",
+      },
+      {
+        type: "list",
+        content: "Before you sign with any web design agency in Ottawa, confirm the following:",
+        items: [
+          "They conducted a proper discovery process and asked detailed questions about your business",
+          "Their own website scores above 70 on Google PageSpeed Insights on mobile",
+          "They did not promise guaranteed search rankings within a specific timeframe",
+          "The contract specifies deliverables, revision rounds, timeline, and ownership of all assets",
+          "You have visited at least three live client websites and tested them yourself",
+          "You have a full cost breakdown including post-launch hosting and maintenance",
+          "They have a documented support process for after your site goes live",
+        ],
+      },
+      {
+        type: "heading",
+        content: "The Right Agency Is Worth Finding",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Ottawa's business community is competitive. Whether you are a professional services firm in Westboro, a retailer in Barrhaven, or a tech startup near Kanata, your website is often the first impression a potential client gets of your business. Getting that impression right matters enormously. The red flags in this post are not rare edge cases — they show up regularly in the Ottawa market and in agency relationships across Canada. Knowing what to watch for before you sign gives you a significant advantage.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For a full framework on evaluating agencies beyond just the warning signs — including what questions to ask, how to assess technical depth, and how to structure the contract — read our complete guide: How to Choose a Web Development Agency.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "At ClickBoost, we build high-performance websites for Ottawa businesses with a transparent process, clean ownership terms, and post-launch support built into every engagement. If you want to see our work, ask hard questions, and get a detailed proposal that leaves nothing ambiguous, book a free strategy session. We will tell you exactly what your project requires, what it will cost, and what you can expect — or we will tell you honestly if we are not the right fit.",
+      },
+    ],
+  },
+  {
     slug: "how-to-choose-web-development-agency",
     title: "How to Choose a Web Development Agency: The Complete Guide",
     excerpt:
